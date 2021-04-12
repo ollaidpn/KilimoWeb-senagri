@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Culture;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CultureController extends Controller
 {
@@ -14,7 +16,8 @@ class CultureController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::find(Auth::user()->id);
+        return view('Admin.Agriculture.Culture.index', compact('user'));
     }
 
     /**
@@ -22,9 +25,10 @@ class CultureController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function addCulture()
     {
-        //
+        $user = User::find(Auth::user()->id);
+        return view('Admin.Agriculture.Culture.addCulture', compact('user'));
     }
 
     /**
