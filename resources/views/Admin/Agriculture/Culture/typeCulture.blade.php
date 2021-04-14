@@ -17,10 +17,10 @@
     <div class="header-navbar-shadow"></div>
     <div class="content-wrapper">
         <div class="content-header row">
-            <div class="content-header-left col-md-9 col-12 mb-2">
+            <div class="mb-2 content-header-left col-md-9 col-12">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Agriculture</h2>
+                        <h2 class="float-left mb-0 content-header-title">Agriculture</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html">Tableau de bord</a>
@@ -82,7 +82,7 @@
                                         </div>
 
                                         <div class="col-12">
-                                            <button type="reset" class="btn btn-primary mr-1">Ajouter</button>
+                                            <button type="reset" class="mr-1 btn btn-primary">Ajouter</button>
                                         </div>
                                     </div>
                                 </form>
@@ -116,8 +116,8 @@
                                                         <td>Diallo</td>
                                                         <td>11/04/2021</td>
                                                         <td>
-                                                            <a href=""><i class="fa fa-pencil"></i></a>
-                                                            <a href=""><i class="fa fa-trash-o"></i></a>
+                                                            <a href=""><i class="fas fa-edit"></i></a>
+                                                            <a href=""><i class="fas fa-trash-alt"></i></a>
                                                         </td>
                                                     </tr>
                                                 </tbody>
