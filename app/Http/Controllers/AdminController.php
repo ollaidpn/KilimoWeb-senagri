@@ -16,7 +16,7 @@ class AdminController extends Controller
     public function index()
     {
         $user = User::find(Auth::user()->id);
-        return view('Admin.index', compact('user'));
+        return view('livewire.Admin.index', compact('user'));
     }
 
     /**

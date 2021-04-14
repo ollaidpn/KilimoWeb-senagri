@@ -29,7 +29,7 @@ class Semie extends Controller
         $cultures = Culture::pluck('nom', 'id');
         $selectedID = 1;
 
-        return view('livewire.Semies.semie', compact('semies', 'user', 'selectedID', 'cultures', 'updateMode'));
+        return view('livewire.Admin.Agriculture.Culture.Semies.semie', compact('semies', 'user', 'selectedID', 'cultures', 'updateMode'));
     }
 
     // Add new semie
@@ -100,12 +100,14 @@ class Semie extends Controller
     {
         $semie = $id;
         //dd($semie->id);
-        $semies = CultureSemie::All();
+        $semies = DB::table('culture_semies')
+                    ->join('cultures', 'cultures.id', '=', 'culture_semies.culture_id')
+                    ->get();
         $cultures = Culture::pluck('nom', 'id');
         $user = User::find(Auth::user()->id);
         $updateMode = true;
 
-        return view('livewire.Semies.semie', compact('semie', 'cultures', 'semies', 'user', 'updateMode'));
+        return view('livewire.Admin.Agriculture.Culture.Semies.semie', compact('semie', 'cultures', 'semies', 'user', 'updateMode'));
     }
 
      /**

@@ -23,7 +23,7 @@ class CulturesVarietesController extends Controller
         $cultures = Culture::pluck('nom', 'id');
         $selectedID = 1;
 
-        return view('Admin.Agriculture.Culture.Varietes.varietes', compact('varietes', 'user', 'selectedID', 'cultures'));
+        return view('livewire.Admin.Agriculture.Culture.Varietes.varietes', compact('varietes', 'user', 'selectedID', 'cultures'));
 
     }
 
@@ -104,7 +104,7 @@ class CulturesVarietesController extends Controller
         $cultures = Culture::pluck('nom', 'id');
         $user = User::find(Auth::user()->id);
 
-        return view('Admin.Agriculture.Culture.Varietes.varietesEdit', compact('variete', 'cultures', 'varietes', 'user'));
+        return view('livewire.Admin.Agriculture.Culture.Varietes.varietesEdit', compact('variete', 'cultures', 'varietes', 'user'));
     }
 
     /**

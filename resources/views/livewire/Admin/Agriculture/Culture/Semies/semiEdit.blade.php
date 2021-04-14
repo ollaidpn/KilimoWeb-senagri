@@ -35,7 +35,7 @@
                         <div class="form-group">
                             <label for="recoltes">Description</label>
                             <textarea type="text" row="5" id="recoltes" class="form-control" value="{{ $semie->description }}"
-                                name="description" placeholder="Ex: description culture"></textarea>
+                                name="description" placeholder="Ex: description culture">{{ $semie->description }}</textarea>
                         </div>
                     </div>
                     <div class="col-6">

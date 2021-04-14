@@ -87,9 +87,9 @@
                                 {{-- Vue créer et modifier --}}
 
                                 @if($updateMode)
-                                    @include('livewire.Varietes.varieteEdit')
+                                    @include('livewire.Admin.Agriculture.Culture.Varietes.varieteEdit')
                                 @else
-                                    @include('livewire.Varietes.varieteCreate')
+                                    @include('livewire.Admin.Agriculture.Culture.Varietes.varieteCreate')
                                 @endif
                             </div>
                             <div class="col-md-8 col-12">

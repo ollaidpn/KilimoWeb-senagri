@@ -16,7 +16,7 @@ class CulturesTypesController extends Controller
     public function index()
     {
         $user = User::find(Auth::user()->id);
-        return view('Admin.Agriculture.Culture.typeCulture', compact('user'));
+        return view('livewire.Admin.Agriculture.Culture.typeCulture', compact('user'));
 
     }
 

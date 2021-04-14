@@ -63,7 +63,7 @@
                         <div class="row">
                             <div class="col-md-4 col-12">
                                 @if ($errors->any())
-                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <div class="p-2 alert alert-danger alert-dismissible fade show" role="alert">
                                             <ul>
                                                 @foreach ($errors->all() as $error)
                                                     <li>{{ $error }}</li>
@@ -76,7 +76,7 @@
                                     @endif
 
                                     @if (session()->get('success'))
-                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <div class="p-2 alert alert-success" role="alert">
                                             {{ session()->get('success') }}
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
@@ -87,9 +87,9 @@
                                 {{-- Vue créer et modifier --}}
 
                                 @if($updateMode)
-                                    @include('livewire.Semies.semiEdit')
+                                    @include('livewire.Admin.Agriculture.Culture.Semies.semiEdit')
                                 @else
-                                    @include('livewire.Semies.semieCreate')
+                                    @include('livewire.Admin.Agriculture.Culture.Semies.semieCreate')
                                 @endif
                             </div>
                             <div class="col-md-8 col-12">

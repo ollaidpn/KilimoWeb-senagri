@@ -32,7 +32,7 @@ class Variete extends Controller
         $selectedID = 1;
 
         //return view('Admin.Agriculture.Culture.Varietes.varietes', compact('varietes', 'user', 'selectedID', 'cultures'));
-        return view('livewire.Varietes.variete', compact('varietes', 'user', 'selectedID', 'cultures', 'updateMode'));
+        return view('livewire.Admin.Agriculture.Culture.Varietes.variete', compact('varietes', 'user', 'selectedID', 'cultures', 'updateMode'));
     }
 
     // Add new variété
@@ -75,12 +75,14 @@ class Variete extends Controller
     {
         $variete = $id;
         //dd($variete->id);
-        $varietes = CulturesVariete::All();
+        $varietes = DB::table('cultures_varietes')
+                    ->join('cultures', 'cultures.id', '=', 'cultures_varietes.culture_id')
+                    ->get();
         $cultures = Culture::pluck('nom', 'id');
         $user = User::find(Auth::user()->id);
         $updateMode = true;
 
-        return view('livewire.Varietes.variete', compact('variete', 'cultures', 'varietes', 'user', 'updateMode'));
+        return view('livewire.Admin.Agriculture.Culture.Varietes.variete', compact('variete', 'cultures', 'varietes', 'user', 'updateMode'));
     }
 
      /**

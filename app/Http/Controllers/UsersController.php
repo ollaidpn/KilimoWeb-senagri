@@ -16,7 +16,7 @@ class UsersController extends Controller
     public function userAdmin()
     {
         $Users = User::where('role_id', 1)->get();
-        return view('Admin.Users.userAdmin', compact('Users'));
+        return view('livewire.Admin.Users.userAdmin', compact('Users'));
     }
 
     /**
