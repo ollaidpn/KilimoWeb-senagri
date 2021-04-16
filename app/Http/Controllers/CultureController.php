@@ -17,7 +17,7 @@ class CultureController extends Controller
     public function index()
     {
         $user = User::find(Auth::user()->id);
-        return view('Admin.Agriculture.Culture.index', compact('user'));
+        return view('livewire.Admin.Agriculture.Culture.index', compact('user'));
     }
 
     /**
@@ -84,6 +84,6 @@ class CultureController extends Controller
      */
     public function destroy(Culture $culture)
     {
-        //
+
     }
 }
