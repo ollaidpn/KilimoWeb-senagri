@@ -2,60 +2,70 @@
     <div class="card">
         <div class="card-header">
             <h4 class="card-title">Modification de Semie</h4>
-
         </div>
         <div class="card-body">
-            <form class="form form-vertical" action="/admin/culture/type-semie/update/ {{ $semie->id }}"
-                method="POST" enctype="multipart/form-data">
+
                 @csrf
-                @method('PUT')
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group">
                             <label for="nom">Nom semie</label>
-                            <input type="text" id="nom" value="{{ $semie->nom_semie }}"
-                                class="form-control" name="nom_semie" placeholder="Ex: varièté" />
+                            <input class="form-control" type="hidden" wire:model="id_semie" placeholder="Ex: varièté" />
+                            <input type="text" id="nom"
+                                class="form-control" wire:model="nom_semie" placeholder="Ex: semie" />
+                                @error('nom_semie') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-group">
                             <label for="contact-info-vertical">Type de culture</label>
-                            <select name="culture_id" class="form-control">
+                            <select wire:model="culture_id" class="form-control">
                                 <option>Choisir le type de culture</option>
                                 @foreach ($cultures as $key => $value)
                                     <option value="{{ $key }}"
-                                        {{ $key == $semie->culture_id ? 'selected' : '' }}>
+                                        {{ $key == 1 ? 'selected' : '' }}>
                                         {{ $value }}
                                     </option>
                                 @endforeach
                             </select>
+                            @error('culture_id') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-group">
                             <label for="recoltes">Description</label>
-                            <textarea type="text" row="5" id="recoltes" class="form-control" value="{{ $semie->description }}"
-                                name="description" placeholder="Ex: description culture">{{ $semie->description }}</textarea>
+                            <textarea type="text" row="5" id="recoltes" class="form-control"
+                                wire:model="description" placeholder="Ex: description culture">
+                            </textarea>
+                            @error('description') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-12">
                         <div class="form-group">
-                            <label for="planche">Image</label>
+                            <label for="planche">Image</label><br>
                             <input type="file" id="planche" class="form-control"
-                                name="image" placeholder="Ex: 25j"/>
-                            {{--  --}}
+                                wire:model="image"/>
                         </div>
                     </div>
-                    <div class="col-6">
-                        <img src="{{asset('image/semie/')}}/{{ $semie->image }}" style="width:150px; heigth=150px; border-radius:5%" alt="imageSelect"/>
+                    <div class="col-12">
+                        <div class="form-group flex-end">
+                            @error('image') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
+                            <div wire:loading wire:target="image">Uploading...</div>
+                            @if ($image)
+                                Photo Preview<br>
+                                <img src="{{ $image->temporaryUrl() }}" width="150" height="150">
+                            @else
+                                <img src="{{asset('storage/image/semie/'.$imageView)}}/" style="width:150px; heigth=150px; border-radius:5%" alt="imageSelect"/>
+                            @endif
+                        </div>
                     </div>
 
                     <div class="col-12">
-                        <button type="submit" class="mr-1 btn btn-info">Modifier</button>
-                        <a class="mr-1 btn btn-danger" href="{{ route('admin-type-semie')}}">Annuler</a>
+                        <button wire:click="update()" class="mr-1 btn btn-info">Modifier</button>
+                        <button wire:click="annule()" class="mr-1 btn nav-danger">Annuler</button>
                     </div>
                 </div>
-            </form>
+
         </div>
     </div>
 </div>

@@ -40,115 +40,40 @@
                     <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
                         <div class="form-group breadcrumb-right">
                             <div class="dropdown">
-                                <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
-                                        data-feather="grid"></i></button>
-                                <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="app-todo.html"><i
-                                            class="mr-1" data-feather="check-square"></i><span
-                                            class="align-middle">Todo</span></a><a class="dropdown-item" href="app-chat.html"><i
-                                            class="mr-1" data-feather="message-square"></i><span
-                                            class="align-middle">Chat</span></a><a class="dropdown-item"
-                                        href="app-email.html"><i class="mr-1" data-feather="mail"></i><span
-                                            class="align-middle">Email</span></a><a class="dropdown-item"
-                                        href="app-calendar.html"><i class="mr-1" data-feather="calendar"></i><span
-                                            class="align-middle">Calendar</span></a></div>
+                                <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle"
+                                        type="button"
+                                        data-toggle="dropdown"
+                                        aria-haspopup="true"
+                                        aria-expanded="false"
+                                >
+                                    <i data-feather="grid"></i>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="app-todo.html">
+                                        <i class="mr-1" data-feather="check-square"></i>
+                                        <span class="align-middle">Todo</span>
+                                    </a>
+                                    <a class="dropdown-item" href="app-chat.html">
+                                        <i class="mr-1" data-feather="message-square"></i>
+                                        <span class="align-middle">Chat</span>
+                                    </a>
+                                    <a class="dropdown-item" href="app-email.html">
+                                        <i class="mr-1" data-feather="mail"></i>
+                                        <span class="align-middle">Email</span>
+                                    </a>
+                                    <a class="dropdown-item" href="app-calendar.html">
+                                        <i class="mr-1" data-feather="calendar"></i>
+                                        <span class="align-middle">Calendar</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="content-body">
-
-
                     <section id="basic-vertical-layouts">
-                        <div class="row">
-                            <div class="col-md-4 col-12">
-                                @if ($errors->any())
-                                        <div class="p-2 alert alert-danger alert-dismissible fade show" role="alert">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                    @endif
-
-                                    @if (session()->get('success'))
-                                        <div class="p-2 alert alert-success" role="alert">
-                                            {{ session()->get('success') }}
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                    @endif
-
-                                {{-- Vue créer et modifier --}}
-
-                                @if($updateMode)
-                                    @include('livewire.Admin.Agriculture.Culture.Semies.semiEdit')
-                                @else
-                                    @include('livewire.Admin.Agriculture.Culture.Semies.semieCreate')
-                                @endif
-                            </div>
-                            <div class="col-md-8 col-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4 class="card-title">Liste des semies</h4>
-                                    </div>
-                                    <div class="card-content">
-                                        <div class="card-body card-dashboard">
-                                            <div class="table-responsive rowb">
-                                                <table class="table zero-configuration">
-                                                    <thead>
-                                                        <tr style="width: 100%; text-align: center">
-                                                            <th style="width: 20%">Nom</th>
-                                                            <th style="width: 20%">Type de Culture</th>
-                                                            <th style="width: 20%">Description</th>
-                                                            <th style="width: 20%">Image</th>
-                                                            <th style="width: 20%">Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            @foreach ($semies as $semie)
-                                                        <tr>
-                                                            <td>{{ $semie->nom_semie }}</td>
-                                                            <td style="width: 100%; text-align: center">
-                                                                {{ $semie->nom }}</td>
-                                                            <td style="width: 100%; text-align: center">
-                                                                {{ $semie->description }} </td>
-                                                            <td style="width: 100%; text-align: center">
-                                                                <span class="avatar">
-                                                                    <img class="round" src="{{asset("image/semie")}}/{{ $semie->image }}" width="80" heigth="80" /></td>
-                                                                </span>
-                                                            <td class="table-buttons" style="width: 100%; text-align: center">
-                                                                <a class="ml-2 btn btn-outline-info"
-                                                                    href="{{ route('admin-type-semie-edit', $semie->id) }}"><i
-                                                                        class="fas fa-edit"></i></a>
-                                                                <form method="POST" action="{{ route('admin-type-semie-delete', $semie->id) }}">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button type="submit" class="ml-2 btn btn-outline-danger">
-                                                                        <i class="fas fa-trash-alt"></i>
-                                                                    </button>
-                                                                </form>
-                                                            </td>
-                                                        </tr>
-                                                        @endforeach
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <livewire:admin.agriculture.culture.semies.semielivewire/>
                     </section>
-
-
                 </div>
             </div>
         </div>
@@ -167,20 +92,7 @@
         <script src="{{ asset('assets/admin/vendors/js/tables/datatable/dataTables.responsive.min.js') }}"></script>
         <script src="{{ asset('assets/admin/vendors/js/tables/datatable/responsive.bootstrap4.js') }}"></script>
         <script src="{{ asset('assets/admin/vendors/js/pickers/flatpickr/flatpickr.min.js') }}"></script>
-        <script>
-            function previewFile(input){
-                var file = $("input[type=file]").get(0).files[0];
-                if(file){
-                    var reader = new FileReader();
-                    reader.onload = function(){
-                        $("#imagePreview").attr("src", reader.result);
-                    }
-                    reader.readAsDataURL(file);
-                }
 
-            }
-        </script>
 
     @endsection
-
 </div>
