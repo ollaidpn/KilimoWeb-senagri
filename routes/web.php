@@ -25,9 +25,15 @@ Route::middleware('auth')->group(function () {
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
 
 Route::get('/admin/culture', [App\Http\Controllers\CultureController::class, 'index'])->name('admin-cultures');
+// moussa
 Route::get('/admin/culture/ajouter', [App\Http\Controllers\CultureController::class, 'addCulture'])->name('admin-addCulture');
 Route::get('/admin/culture/type-culture', [App\Http\Controllers\CulturesTypesController::class, 'index'])->name('admin-typesCulture');
-Route::get('/admin/culture/varietes', [App\Http\Controllers\CulturesVarietesController::class, 'index'])->name('admin-varietesCulture');
+
+// Variétès
+Route::get('/admin/culture/varietes', [App\Http\Livewire\Admin\Agriculture\Varietes\Variete::class, 'render'])->name('admin-varietesCulture');
+
+// Semie
+Route::get('/admin/culture/type-semie', [App\Http\Livewire\Admin\Agriculture\Semies\Semie::class, 'render'])->name('admin-type-semie');
 
 
 Route::get('/admin/utilisateurs/administrateurs', [App\Http\Controllers\UsersController::class, 'userAdmin'])->name('admin-user-admin');

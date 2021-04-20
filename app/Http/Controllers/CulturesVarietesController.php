@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CulturesVariete;
 use App\Models\User;
+use App\Models\Culture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,9 +17,44 @@ class CulturesVarietesController extends Controller
      */
     public function index()
     {
+        $varietes = CulturesVariete::All();
         $user = User::find(Auth::user()->id);
-        return view('Admin.Agriculture.Culture.varietes', compact('user'));
 
+        $cultures = Culture::pluck('nom', 'id');
+        $selectedID = 1;
+
+        return view('livewire.Admin.Agriculture.Culture.Varietes.varietes', compact('varietes', 'user', 'selectedID', 'cultures'));
+
+    }
+
+
+    // Add new variété
+
+    public function addVariete(Request $request)
+    {
+        {
+            $this->validate($request, [
+                'varieteName'=>'required',
+                'typeCulture'=>'required',
+                'tempsRecolte'=>'required',
+                'repiPlanche'=>'required',
+                'repiAlveole'=>'required',
+                'arrosage'=>'required',
+
+            ]);
+            $Variete = new CulturesVariete();
+            $Variete->nom_variete=$request->input('varieteName');
+            $Variete->culture_id=$request->input('typeCulture');
+            $Variete->temps_de_recolte=$request->input('tempsRecolte');
+            $Variete->repiquage_planche=$request->input('repiPlanche');
+            $Variete->repiquage_alveole=$request->input('repiAlveole');
+            $Variete->temps_arrosage=$request->input('arrosage');
+
+            $Variete->save();
+
+            return redirect('/admin/culture/varietes') ->with('success', "Vous venez d'ajouter une nouvelle variétè avec succès !");
+
+        }
     }
 
     /**
@@ -25,9 +62,11 @@ class CulturesVarietesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function create()
     {
-        //
+
     }
 
     /**
@@ -58,9 +97,14 @@ class CulturesVarietesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $id)
     {
-        //
+        $variete = CulturesVariete::find($id);
+        $varietes = CulturesVariete::All();
+        $cultures = Culture::pluck('nom', 'id');
+        $user = User::find(Auth::user()->id);
+
+        return view('livewire.Admin.Agriculture.Culture.Varietes.varietesEdit', compact('variete', 'cultures', 'varietes', 'user'));
     }
 
     /**
@@ -81,8 +125,11 @@ class CulturesVarietesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $id)
     {
-        //
+        $user = CulturesVariete::find($id);
+        $user->delete();
+
+        return redirect('/admin/culture/varietes') ->with('success', "Vous venez de supprimer une variétè avec succès !");
     }
 }

@@ -42,7 +42,7 @@
                             <label for="telephone" class="col-md-4 col-form-label text-md-right">{{ __('telephone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="telephone" type="number" class="form-control @error('telephone') is-invalid @enderror" name="telephone" value="{{ old('telephone') }}" required autocomplete="telephone" autofocus>
+                                <input id="telephone" type="tel" class="form-control @error('telephone') is-invalid @enderror" name="telephone" value="{{ old('telephone') }}" required autocomplete="telephone" autofocus>
 
                                 @error('telephone')
                                     <span class="invalid-feedback" role="alert">
@@ -88,7 +88,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
+                        <div class="mb-0 form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
