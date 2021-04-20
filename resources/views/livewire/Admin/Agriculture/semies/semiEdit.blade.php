@@ -10,7 +10,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="nom">Nom semie</label>
-                            <input class="form-control" type="hidden" wire:model="id_semie" placeholder="Ex: varièté" />
+                            <input class="form-control @error('nom_semie') is-invalid @enderror" type="hidden" wire:model="id_semie" placeholder="Ex: varièté" />
                             <input type="text" id="nom"
                                 class="form-control" wire:model="nom_semie" placeholder="Ex: semie" />
                                 @error('nom_semie') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
@@ -19,7 +19,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="contact-info-vertical">Type de culture</label>
-                            <select wire:model="culture_id" class="form-control">
+                            <select wire:model="culture_id" class="form-control @error('culture_id') is-invalid @enderror">
                                 <option>Choisir le type de culture</option>
                                 @foreach ($cultures as $key => $value)
                                     <option value="{{ $key }}"
@@ -34,7 +34,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="recoltes">Description</label>
-                            <textarea type="text" row="5" id="recoltes" class="form-control"
+                            <textarea type="text" row="5" id="recoltes" class="form-control @error('description') is-invalid @enderror"
                                 wire:model="description" placeholder="Ex: description culture">
                             </textarea>
                             @error('description') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
@@ -43,7 +43,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="planche">Image</label><br>
-                            <input type="file" id="planche" class="form-control"
+                            <input type="file" id="planche" class="form-control @error('image') is-invalid @enderror"
                                 wire:model="image"/>
                         </div>
                     </div>

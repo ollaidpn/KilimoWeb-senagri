@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Culture extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'typeculture_id',
+        'nom_culture',
+        'description',
+        'image'
+    ];
 }

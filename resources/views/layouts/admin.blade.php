@@ -12,6 +12,8 @@
     <meta name="author" content="PIXINVENT">
     <title>Kilimo</title>
     <link rel="apple-touch-icon" href="{{asset('assets/admin/images/ico/apple-icon-120.png')}}">
+    <link rel="apple-touch-icon" href="{{asset('assets/admin/images/ico/apple-icon-120.png')}}">
+    <link rel="stylesheet" href="{{asset('css/all.min.css')}}">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/admin/images/ico/favicon.ico')}}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
@@ -33,8 +35,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/pages/page-blog.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/all.min.css')}}">
     <!-- END: Page CSS-->
-    @livewireStyles
 
+    @livewireStyles
 </head>
 <!-- END: Head-->
 

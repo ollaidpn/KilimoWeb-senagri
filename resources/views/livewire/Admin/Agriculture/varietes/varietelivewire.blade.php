@@ -53,7 +53,7 @@
                                         <td style="width: 100%; text-align: center">
                                             {{ $variete->temps_arrosage }} heure(s)</td>
 
-                                        <td style="width: 100%; text-align: center">
+                                        <td class='d-flex'>
                                             <button class="ml-2 btn btn-outline-info" wire:click="edit({{ $variete->id }})">
                                                 <i class="fas fa-edit"></i>
                                             </button>

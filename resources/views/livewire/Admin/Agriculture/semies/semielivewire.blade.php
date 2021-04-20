@@ -58,7 +58,7 @@
                                                     />
                                             </td>
                                             </span>
-                                            <td class="pt-2 table-buttons d-flex" style="width: 100%; text-align: center">
+                                            <td class='d-flex'>
                                                 <button class="ml-2 btn btn-outline-info" wire:click="edit({{ $semie->id }})">
                                                     <i class="fas fa-edit"></i>
                                                 </button>

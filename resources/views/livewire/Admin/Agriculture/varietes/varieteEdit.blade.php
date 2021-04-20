@@ -11,14 +11,14 @@
                         <div class="form-group">
                             <label for="nom">Nom varièté</label>
                             <input class="form-control" type="hidden" wire:model="id_variete" />
-                            <input type="text" id="nom" class="form-control" wire:model="nom_variete" placeholder="Ex: varièté" />
+                            <input type="text" id="nom" class="form-control @error('nom_variete') is-invalid @enderror" wire:model="nom_variete" placeholder="Ex: varièté" />
                             @error('nom_variete') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-group">
                             <label for="contact-info-vertical">Type de culture</label>
-                            <select wire:model="culture_id" class="form-control">
+                            <select wire:model="culture_id" class="form-control @error('culture_id') is-invalid @enderror">
                                 <option>Choisir le type de culture</option>
                                 @foreach ($cultures as $key => $value)
                                     <option value="{{ $key }}"
@@ -33,28 +33,28 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="recoltes">Temps de récoltes (jours)</label>
-                            <input type="number" id="recoltes" class="form-control" wire:model="temps_de_recolte" placeholder="Ex: 45 jours" />
+                            <input type="number" id="recoltes" class="form-control @error('temps_de_recolte') is-invalid @enderror" wire:model="temps_de_recolte" placeholder="Ex: 45 jours" />
                             @error('temps_de_recolte') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-group">
                             <label for="planche">Durée Repiquages planches (jours)</label>
-                            <input type="number" id="planche" class="form-control" wire:model="repiquage_planche" placeholder="Ex: 25j" />
+                            <input type="number" id="planche" class="form-control @error('repiquage_planche') is-invalid @enderror" wire:model="repiquage_planche" placeholder="Ex: 25j" />
                             @error('repiquage_planche') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-group">
                             <label for="alvèoles">Durée Repiquages alvéoles (jours)</label>
-                            <input type="number" id="alvèoles" class="form-control" wire:model="repiquage_alveole" placeholder="Ex: 15j" />
+                            <input type="number" id="alvèoles" class="form-control @error('repiquage_alveole') is-invalid @enderror" wire:model="repiquage_alveole" placeholder="Ex: 15j" />
                             @error('repiquage_alveole') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-group">
                             <label for="arrosage">Intervalle d'arrosage (heures)</label>
-                            <input type="number" id="arrosage" class="form-control" wire:model="temps_arrosage" placeholder="ex: 2h" />
+                            <input type="number" id="arrosage" class="form-control @error('temps_arrosage') is-invalid @enderror" wire:model="temps_arrosage" placeholder="ex: 2h" />
                             @error('temps_arrosage') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                         </div>
                     </div>

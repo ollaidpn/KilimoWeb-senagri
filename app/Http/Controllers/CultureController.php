@@ -84,6 +84,6 @@ class CultureController extends Controller
      */
     public function destroy(Culture $culture)
     {
-        //
+
     }
 }
