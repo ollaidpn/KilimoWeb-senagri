@@ -1,4 +1,17 @@
 <div class="col-md-4 col-12">
+    @if (session()->has('ajout_success'))
+    <span style="display: inline" class="alert alert-success">
+        {{ session('ajout_success') }}
+    </span>
+@elseif (session()->has('message'))
+    <span class="ml-2 alert alert-danger">
+        {{ session('message') }}
+    </span>
+    @elseif (session()->has('modify_success'))
+    <span class="ml-2 alert alert-success">
+        {{ session('message') }}
+    </span>
+@endif
     <div class="card">
         <div class="card-header">
             <h4 class="card-title">Ajouter culture</h4>

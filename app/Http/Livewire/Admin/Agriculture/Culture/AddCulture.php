@@ -1,13 +1,21 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin\Agriculture\Culture;
 use App\Models\User;
 use App\Models\Culture;
 use Illuminate\Support\Facades\Auth;
 use Livewire\WithFileUploads;
 use Livewire\Component;
+
 class AddCulture extends Component
 {
+    public function render()
+    {
+        $cultureType =
+        $user = User::find(Auth::user()->id);
+        $cultures = Culture::All();
+        return view('livewire.admin.agriculture.culture.add-culture',compact('user','cultures'));
+    }
     use WithFileUploads;
     public $nom_culture,$description,$image,$culture_id;
     public $updateMode = false;
@@ -17,12 +25,6 @@ class AddCulture extends Component
         $user = User::find(Auth::user()->id);
         $cultures = Culture::All();
         return view('livewire.Admin.Agriculture.Culture.addCulture', compact('user','cultures'));
-    }
-    public function render()
-    {
-        $user = User::find(Auth::user()->id);
-        $cultures = Culture::All();
-        return view('livewire.add-culture',compact('user','cultures'));
     }
     public function resetInput()
     {

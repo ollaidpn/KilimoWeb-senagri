@@ -46,7 +46,7 @@
         <div class="content-body">
             <section id="basic-vertical-layouts">
                 <div>
-                    @livewire('type-culture')
+                    <livewire:admin.agriculture.type-culture.type-culture>
                 </div>
             </section>
         </div>

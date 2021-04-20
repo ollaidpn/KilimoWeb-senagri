@@ -49,8 +49,7 @@
 
                 </div>
             </section>
-
-            @livewire('add-culture')
+            <livewire:admin.agriculture.culture.add-culture>
         </div>
     </div>
 </div>

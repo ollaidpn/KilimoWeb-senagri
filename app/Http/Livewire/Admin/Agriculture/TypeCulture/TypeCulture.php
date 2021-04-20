@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin\Agriculture\TypeCulture;
 use App\Models\User;
 use App\Models\CulturesType;
 use Illuminate\Support\Facades\Auth;
@@ -8,18 +8,18 @@ use Livewire\Component;
 
 class TypeCulture extends Component
 {
+    public function render()
+    {
+        $culture_types = CulturesType::All();
+        return view('livewire.admin.agriculture.type-culture.type-culture',compact('culture_types'));
+    }
     public $nom_typeculture,$typeculture_id;
     public $updateMode = false;
     public function index()
     {
         $user = User::find(Auth::user()->id);
-        return view('livewire.Admin.Agriculture.typeCulture.typeCulture', compact('user'));
+        return view('livewire.Admin.Agriculture.type-culture.typeCulture', compact('user'));
 
-    }
-    public function render()
-    {
-        $culture_types = CulturesType::All();
-        return view('livewire.type-culture',compact('culture_types'));
     }
     public function resetInput()
     {

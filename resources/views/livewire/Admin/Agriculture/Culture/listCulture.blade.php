@@ -4,19 +4,6 @@
             <h4 class="card-title">Liste des Cultures</h4>
         </div>
         <div class="ml-2 card-content">
-            @if (session()->has('ajout_success'))
-            <div class="alert alert-success">
-                {{ session('ajout_success') }}
-            </div>
-            @elseif (session()->has('message'))
-                <div class="ml-2 alert alert-danger">
-                    {{ session('message') }}
-                </div>
-                @elseif (session()->has('modify_success'))
-                <div class="ml-2 alert alert-success">
-                    {{ session('message') }}
-                </div>
-            @endif
             <div class="card-body card-dashboard">
                 <div class="table-responsive">
                     <table class="table zero-configuration">

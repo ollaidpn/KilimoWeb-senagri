@@ -25,10 +25,12 @@ Route::middleware('auth')->group(function () {
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
 
 Route::get('/admin/culture', [App\Http\Controllers\CultureController::class, 'index'])->name('admin-cultures');
-Route::get('/admin/culture/ajouter', [App\Http\Livewire\AddCulture::class, 'addCulture'])->name('admin-addCulture');
-Route::get('/admin/culture/type-culture', [App\Http\Livewire\TypeCulture::class, 'index'])->name('admin-typesCulture');
 Route::get('/admin/culture/varietes', [App\Http\Controllers\CulturesVarietesController::class, 'index'])->name('admin-varietesCulture');
 
+// culture
+Route::get('/admin/culture/ajouter', [App\Http\Livewire\Admin\Agriculture\Culture\AddCulture::class, 'addCulture'])->name('admin-addCulture');
+// type culture
+Route::get('/admin/culture/type-culture', [App\Http\Livewire\Admin\Agriculture\TypeCulture\TypeCulture::class, 'index'])->name('admin-typesCulture');
 
 Route::get('/admin/utilisateurs/administrateurs', [App\Http\Controllers\UsersController::class, 'userAdmin'])->name('admin-user-admin');
 Route::post('/admin/utilisateurs/administrateurs/ajouter', [App\Http\Controllers\UsersController::class, 'addUserAdmin'])->name('admin-user-admin-create');
