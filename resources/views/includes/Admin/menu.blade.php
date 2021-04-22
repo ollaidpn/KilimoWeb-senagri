@@ -3,12 +3,12 @@
     <div class="horizontal-menu-wrapper">
         <div class="header-navbar navbar-expand-sm navbar navbar-horizontal floating-nav navbar-light navbar-shadow menu-border" role="navigation" data-menu="menu-wrapper" data-menu-type="floating-nav">
             <div class="navbar-header">
-                <ul class="nav navbar-nav flex-row">
-                    <li class="nav-item mr-auto">
+                <ul class="flex-row nav navbar-nav">
+                    <li class="mr-auto nav-item">
                         <img src="{{asset('assets/logokilimo.png')}}" height="50" alt="">
 
                     </li>
-                    <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i></a></li>
+                    <li class="nav-item nav-toggle"><a class="pr-0 nav-link modern-nav-toggle" data-toggle="collapse"><i class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i></a></li>
                 </ul>
             </div>
             <div class="shadow-bottom"></div>
@@ -31,6 +31,8 @@
                                     <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="{{route('admin-typesCulture')}}" data-toggle="dropdown" data-i18n="Wishlist"><i data-feather="circle"></i><span data-i18n="Wishlist">Type de culture</span></a>
                                     </li>
                                     <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="{{route('admin-varietesCulture')}}" data-toggle="dropdown" data-i18n="Checkout"><i data-feather="circle"></i><span data-i18n="Checkout">Varièté de culture</span></a>
+                                    </li>
+                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="{{route('admin-type-semie')}}" data-toggle="dropdown" data-i18n="Checkout"><i data-feather="circle"></i><span data-i18n="Checkout">Type de semie</span></a>
                                     </li>
                                 </ul>
                             </li>

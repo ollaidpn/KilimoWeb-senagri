@@ -12,6 +12,8 @@
     <meta name="author" content="PIXINVENT">
     <title>Kilimo</title>
     <link rel="apple-touch-icon" href="{{asset('assets/admin/images/ico/apple-icon-120.png')}}">
+    <link rel="apple-touch-icon" href="{{asset('assets/admin/images/ico/apple-icon-120.png')}}">
+    <link rel="stylesheet" href="{{asset('css/all.min.css')}}">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/admin/images/ico/favicon.ico')}}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
@@ -31,15 +33,16 @@
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/core/menu/menu-types/horizontal-menu.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/pages/page-blog.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/all.min.css')}}">
     <!-- END: Page CSS-->
 
-
+    @livewireStyles
 </head>
 <!-- END: Head-->
 
 <!-- BEGIN: Body-->
 
-<body class="horizontal-layout horizontal-menu content-detached-right-sidebar navbar-floating footer-static  " data-open="hover" data-menu="horizontal-menu" data-col="content-detached-right-sidebar">
+<body class="horizontal-layout horizontal-menu content-detached-right-sidebar navbar-floating footer-static " data-open="hover" data-menu="horizontal-menu" data-col="content-detached-right-sidebar">
 
     <!-- BEGIN: Header-->
     <nav class="header-navbar navbar-expand-lg navbar navbar-fixed align-items-center navbar-shadow navbar-brand-center" style="border-radius: 15px 0px 0px; border-color:red" data-nav="brand-center">
@@ -62,7 +65,7 @@
                 </ul>
 
             </div>
-            <ul class="nav navbar-nav align-items-center ml-auto">
+            <ul class="ml-auto nav navbar-nav align-items-center">
 
                 <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-style"><i class="ficon" data-feather="moon"></i></a></li>
                 <li class="nav-item nav-search"><a class="nav-link nav-link-search"><i class="ficon" data-feather="search"></i></a>
@@ -78,7 +81,7 @@
                     <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
                         <li class="dropdown-menu-header">
                             <div class="dropdown-header d-flex">
-                                <h4 class="notification-title mb-0 mr-auto">Messages</h4>
+                                <h4 class="mb-0 mr-auto notification-title">Messages</h4>
                                 <div class="badge badge-pill badge-light-primary">1 nouveau</div>
                             </div>
                         </li>
@@ -104,7 +107,7 @@
                     <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
                         <li class="dropdown-menu-header">
                             <div class="dropdown-header d-flex">
-                                <h4 class="notification-title mb-0 mr-auto">Notifications</h4>
+                                <h4 class="mb-0 mr-auto notification-title">Notifications</h4>
                                 <div class="badge badge-pill badge-light-primary">A Nouveau</div>
                             </div>
                         </li>
@@ -148,13 +151,13 @@
     </nav>
     <ul class="main-search-list-defaultlist d-none">
         <li class="d-flex align-items-center"><a href="javascript:void(0);">
-                <h6 class="section-label mt-75 mb-0">Files</h6>
+                <h6 class="mb-0 section-label mt-75">Files</h6>
             </a></li>
         <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between w-100" href="app-file-manager.html">
                 <div class="d-flex">
                     <div class="mr-75"><img src="{{asset('assets/admin/images/icons/xls.png')}}" alt="png" height="32"></div>
                     <div class="search-data">
-                        <p class="search-data-title mb-0">Two new item submitted</p><small class="text-muted">Marketing Manager</small>
+                        <p class="mb-0 search-data-title">Two new item submitted</p><small class="text-muted">Marketing Manager</small>
                     </div>
                 </div><small class="search-data-size mr-50 text-muted">&apos;17kb</small>
             </a></li>
@@ -162,7 +165,7 @@
                 <div class="d-flex">
                     <div class="mr-75"><img src="{{asset('assets/admin/images/icons/jpg.png')}}" alt="png" height="32"></div>
                     <div class="search-data">
-                        <p class="search-data-title mb-0">52 JPG file Generated</p><small class="text-muted">FontEnd Developer</small>
+                        <p class="mb-0 search-data-title">52 JPG file Generated</p><small class="text-muted">FontEnd Developer</small>
                     </div>
                 </div><small class="search-data-size mr-50 text-muted">&apos;11kb</small>
             </a></li>
@@ -170,7 +173,7 @@
                 <div class="d-flex">
                     <div class="mr-75"><img src="{{asset('assets/admin/images/icons/pdf.png')}}" alt="png" height="32"></div>
                     <div class="search-data">
-                        <p class="search-data-title mb-0">25 PDF File Uploaded</p><small class="text-muted">Digital Marketing Manager</small>
+                        <p class="mb-0 search-data-title">25 PDF File Uploaded</p><small class="text-muted">Digital Marketing Manager</small>
                     </div>
                 </div><small class="search-data-size mr-50 text-muted">&apos;150kb</small>
             </a></li>
@@ -178,18 +181,18 @@
                 <div class="d-flex">
                     <div class="mr-75"><img src="{{asset('assets/admin/images/icons/doc.png')}}" alt="png" height="32"></div>
                     <div class="search-data">
-                        <p class="search-data-title mb-0">Anna_Strong.doc</p><small class="text-muted">Web Designer</small>
+                        <p class="mb-0 search-data-title">Anna_Strong.doc</p><small class="text-muted">Web Designer</small>
                     </div>
                 </div><small class="search-data-size mr-50 text-muted">&apos;256kb</small>
             </a></li>
         <li class="d-flex align-items-center"><a href="javascript:void(0);">
-                <h6 class="section-label mt-75 mb-0">Members</h6>
+                <h6 class="mb-0 section-label mt-75">Members</h6>
             </a></li>
         <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between py-50 w-100" href="app-user-view.html">
                 <div class="d-flex align-items-center">
                     <div class="avatar mr-75"><img src="{{asset('assets/admin/images/portrait/small/avatar-s-8.jpg')}}" alt="png" height="32"></div>
                     <div class="search-data">
-                        <p class="search-data-title mb-0">John Doe</p><small class="text-muted">UI designer</small>
+                        <p class="mb-0 search-data-title">John Doe</p><small class="text-muted">UI designer</small>
                     </div>
                 </div>
             </a></li>
@@ -197,7 +200,7 @@
                 <div class="d-flex align-items-center">
                     <div class="avatar mr-75"><img src="{{asset('assets/admin/images/portrait/small/avatar-s-1.jpg')}}" alt="png" height="32"></div>
                     <div class="search-data">
-                        <p class="search-data-title mb-0">Michal Clark</p><small class="text-muted">FontEnd Developer</small>
+                        <p class="mb-0 search-data-title">Michal Clark</p><small class="text-muted">FontEnd Developer</small>
                     </div>
                 </div>
             </a></li>
@@ -205,7 +208,7 @@
                 <div class="d-flex align-items-center">
                     <div class="avatar mr-75"><img src="{{asset('assets/admin/images/portrait/small/avatar-s-14.jpg')}}" alt="png" height="32"></div>
                     <div class="search-data">
-                        <p class="search-data-title mb-0">Milena Gibson</p><small class="text-muted">Digital Marketing Manager</small>
+                        <p class="mb-0 search-data-title">Milena Gibson</p><small class="text-muted">Digital Marketing Manager</small>
                     </div>
                 </div>
             </a></li>
@@ -213,7 +216,7 @@
                 <div class="d-flex align-items-center">
                     <div class="avatar mr-75"><img src="{{asset('assets/admin/images/portrait/small/avatar-s-6.jpg')}}" alt="png" height="32"></div>
                     <div class="search-data">
-                        <p class="search-data-title mb-0">Anna Strong</p><small class="text-muted">Web Designer</small>
+                        <p class="mb-0 search-data-title">Anna Strong</p><small class="text-muted">Web Designer</small>
                     </div>
                 </div>
             </a></li>
@@ -252,6 +255,7 @@
     <!-- BEGIN: Theme JS-->
     <script src="{{asset('assets/admin/js/core/app-menu.js')}}"></script>
     <script src="{{asset('assets/admin/js/core/app.js')}}"></script>
+    <script src="{{asset('js/all.min.js')}}"></script>
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
@@ -267,6 +271,7 @@
             }
         })
     </script>
+    @livewireScripts
 </body>
 <!-- END: Body-->
 

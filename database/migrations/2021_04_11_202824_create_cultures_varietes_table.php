@@ -15,6 +15,13 @@ class CreateCulturesVarietesTable extends Migration
     {
         Schema::create('cultures_varietes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('culture_id')->constrained('cultures');
+            //$table->integer('culture_id')->default(1);
+            $table->string("nom_variete");
+            $table->integer("temps_de_recolte");
+            $table->integer("repiquage_planche");
+            $table->integer("repiquage_alveole");
+            $table->integer("temps_arrosage");
             $table->timestamps();
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCulturesTypesTable extends Migration
+class CreateCultureSemiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreateCulturesTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cultures_types', function (Blueprint $table) {
+        Schema::create('culture_semies', function (Blueprint $table) {
             $table->id();
+            $table->string('nom_semie');
+            $table->string('description');
+            $table->string('image')->default("");
+            $table->foreignId('culture_id')->constrained('cultures');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateCulturesTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cultures_types');
+        Schema::dropIfExists('culture_semies');
     }
 }
