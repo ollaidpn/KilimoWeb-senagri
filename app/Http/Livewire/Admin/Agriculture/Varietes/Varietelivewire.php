@@ -22,7 +22,7 @@ class Varietelivewire extends Component
         $selectedID = 1;
         $updateMode = false;
 
-        return view('livewire.admin.agriculture.varietes.varietelivewire', compact('varietes', 'selectedID', 'cultures', 'updateMode'));
+        return view('livewire.Admin.Agriculture.varietes.varietelivewire', compact('varietes', 'selectedID', 'cultures', 'updateMode'));
     }
 
     protected $messages = [

@@ -6,7 +6,7 @@ use App\Models\Culture;
 use Illuminate\Support\Facades\Auth;
 use Livewire\WithFileUploads;
 use Livewire\Component;
-
+use Illuminate\Http\Request;
 class AddCulture extends Component
 {
     public function render()
@@ -14,7 +14,7 @@ class AddCulture extends Component
         $cultureType =
         $user = User::find(Auth::user()->id);
         $cultures = Culture::All();
-        return view('livewire.admin.agriculture.culture.add-culture',compact('user','cultures'));
+        return view('livewire.Admin.Agriculture.Culture.add-culture',compact('user','cultures'));
     }
     use WithFileUploads;
     public $nom_culture,$description,$image,$culture_id;
@@ -38,27 +38,39 @@ class AddCulture extends Component
         'description.required'=>'Le champ description est obligatoire.',
         'image'=>'Le champ image est obligatoire.'
     ];
-    public function store()
+    public function store(Request $request)
     {
         $validaeDate = $this->validate([
             'nom_culture'=>'required',
-            'description'=>'required',
+            'description'=>'required', // tu les a call ou
             'image'=>'required'
         ]);
         $imageSelect = $this->image;
-        if($imageSelect)
-        {
-            $this->validate([
-                'image'=>'mimes:png,jpg,jpeg,bmp',
-            ]);
-            $extension = $imageSelect->extension();
-            $imageName = time().'_culture.'.$extension;
-            $imageSelect->storePubliclyAs('image/culture',$imageName);
-            $validaeDate += [
-                'image'=>$imageName,
-            ];
+
+        if ($request->hasFile('image')) {
+
+            $file_name = time().'.'.$request->image->getClientOriginalExtension();
+            $path_name = 'storage/uploads/produits/'.'1'. date('Y')."/". date('F'). '/';
+
+            if ($request->image->move($path_name, $file_name)) {
+                $imageSelect->image = $path_name.$file_name;
+            }
 
         }
+        // $imageSelect = $this->image;
+        // if($imageSelect)
+        // {
+        //     $this->validate([
+        //         'image'=>'mimes:png,jpg,jpeg,bmp',
+        //     ]);
+        //     $extension = $imageSelect->extension();
+        //     $imageName = time().'_culture.'.$extension;
+        //     $imageSelect->storePubliclyAs('image/culture',$imageName);
+        //     $validaeDate += [
+        //         'image'=>$imageName,
+        //     ];
+
+        // }
         Culture::create($validaeDate);
         session()->flash('ajout_success', 'Vous avez ajouté un nouveau category avec succès.');
         $this->resetInput();

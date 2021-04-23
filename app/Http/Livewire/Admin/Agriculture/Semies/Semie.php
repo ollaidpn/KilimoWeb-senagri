@@ -12,6 +12,6 @@ class Semie extends Component
     {
         $user = User::find(Auth::user()->id);
 
-        return view('livewire.admin.agriculture.semies.semie', compact('user'));
+        return view('livewire.Admin.Agriculture.Semies.semie', compact('user'));
     }
 }

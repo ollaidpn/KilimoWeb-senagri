@@ -37,6 +37,9 @@ Route::get('/admin/culture/varietes', [App\Http\Livewire\Admin\Agriculture\Varie
 Route::get('/admin/culture/type-semie', [App\Http\Livewire\Admin\Agriculture\Semies\Semie::class, 'render'])->name('admin-type-semie');
 
 
+// User
+Route::get('/admin/profile', [App\Http\Controllers\InfosUserController::class, 'index'])->name('admin-infos-user');
+
 
 
 // culture
@@ -48,4 +51,6 @@ Route::get('/admin/utilisateurs/administrateurs', [App\Http\Controllers\UsersCon
 Route::post('/admin/utilisateurs/administrateurs/ajouter', [App\Http\Controllers\UsersController::class, 'addUserAdmin'])->name('admin-user-admin-create');
 Route::get('index',[App\Http\Livewire\AddCulture::class,'render']);
 });
+
+
 
