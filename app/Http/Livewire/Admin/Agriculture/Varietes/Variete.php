@@ -11,6 +11,6 @@ class Variete extends Component
     public function render()
     {
         $user = User::find(Auth::user()->id);
-        return view('livewire.admin.agriculture.varietes.variete', compact('user'));
+        return view('livewire.Admin.Agriculture.varietes.variete', compact('user'));
     }
 }

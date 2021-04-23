@@ -28,7 +28,7 @@ class Semielivewire extends Component
         $cultures = Culture::pluck('nom_culture', 'id');
         $selectedID = 1;
 
-        return view('livewire.admin.agriculture.semies.semielivewire', compact('semies', 'cultures', 'selectedID'));
+        return view('livewire.Admin.Agriculture.Semies.semielivewire', compact('semies', 'cultures', 'selectedID'));
     }
 
     // Add new semie

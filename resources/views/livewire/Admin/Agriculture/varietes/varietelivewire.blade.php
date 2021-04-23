@@ -14,10 +14,10 @@
 
             @if ($updateMode)
                 {{--<livewire:editsemie :updateMode="$updateMode" :semieEdit="$semie"/> --}}
-                 @include('livewire.admin.agriculture.varietes.varieteEdit')
+                 @include('livewire.Admin.Agriculture.varietes.varieteEdit')
             @else
                 {{--<livewire:createsemie :updateMode="$updateMode" />--}}
-                 @include('livewire.admin.agriculture.varietes.varieteCreate')
+                 @include('livewire.Admin.Agriculture.varietes.varieteCreate')
             @endif
         </div>
         <div class="col-md-8 col-12">

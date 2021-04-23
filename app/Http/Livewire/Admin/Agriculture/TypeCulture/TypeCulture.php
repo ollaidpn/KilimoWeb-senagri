@@ -11,7 +11,7 @@ class TypeCulture extends Component
     public function render()
     {
         $culture_types = CulturesType::All();
-        return view('livewire.admin.agriculture.type-culture.type-culture',compact('culture_types'));
+        return view('livewire.Admin.Agriculture.type-culture.type-culture',compact('culture_types'));
     }
     public $nom_typeculture,$typeculture_id;
     public $updateMode = false;
