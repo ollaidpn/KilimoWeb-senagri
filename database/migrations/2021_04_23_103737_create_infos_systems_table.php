@@ -15,6 +15,13 @@ class CreateInfosSystemsTable extends Migration
     {
         Schema::create('infos_systems', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users');
+            $table->string('a_propos');
+            $table->string('activite_principale');
+            $table->date('date_naissance');
+            $table->string('pays');
+            $table->string('adresse');
+            $table->string('situation_matrimoniale');
             $table->timestamps();
         });
     }

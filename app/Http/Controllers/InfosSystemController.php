@@ -19,12 +19,28 @@ class InfosSystemController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $request->validate([
+            "date_naissance"=>"required",
+            "situation_matrimoniale"=>"required",
+            "adresse" => "required",
+            "pays" => "",
+            "activite_principale" => "",
+        ]);
+
+        $info = new InfosSystem([
+            'date_naissance'=>$request->get('date_naissance'),
+            'situation_matrimoniale'=>$request->get('situation_matrimoniale'),
+            'adresse'=>$request->get('adresse'),
+            'pays'=>$request->get('pays'),
+            'activite_principale'=>$request->get('activite_principale'),
+        ]);
+        dd($info);
+        //$info->save();
     }
 
     /**
