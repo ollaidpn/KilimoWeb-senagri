@@ -6,10 +6,10 @@
     <div class="header-navbar-shadow"></div>
     <div class="content-wrapper">
         <div class="content-header row">
-            <div class="content-header-left col-md-9 col-12 mb-2">
+            <div class="mb-2 content-header-left col-md-9 col-12">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Infos Compte</h2>
+                        <h2 class="float-left mb-0 content-header-title">Infos Compte</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html">Admin</a>
@@ -34,36 +34,44 @@
         </div>
         <div class="content-body">
             <!-- account setting page -->
+            @if (session()->has('message'))
+            <div class="p-2 alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('message') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @endif
             <section id="page-account-settings">
                 <div class="row">
                     <!-- left menu section -->
-                    <div class="col-md-3 mb-2 mb-md-0">
+                    <div class="mb-2 col-md-3 mb-md-0">
                         <ul class="nav nav-pills flex-column nav-left">
                             <!-- general -->
                             <li class="nav-item">
                                 <a class="nav-link active" id="account-pill-general" data-toggle="pill" href="#account-vertical-general" aria-expanded="true">
-                                    <i data-feather="user" class="font-medium-3 mr-1"></i>
+                                    <i data-feather="user" class="mr-1 font-medium-3"></i>
                                     <span class="font-weight-bold">Général</span>
                                 </a>
                             </li>
                             <!-- change password -->
                             <li class="nav-item">
                                 <a class="nav-link" id="account-pill-password" data-toggle="pill" href="#account-vertical-password" aria-expanded="false">
-                                    <i data-feather="lock" class="font-medium-3 mr-1"></i>
+                                    <i data-feather="lock" class="mr-1 font-medium-3"></i>
                                     <span class="font-weight-bold">Mot de passe</span>
                                 </a>
                             </li>
                             <!-- information -->
                             <li class="nav-item">
                                 <a class="nav-link" id="account-pill-info" data-toggle="pill" href="#account-vertical-info" aria-expanded="false">
-                                    <i data-feather="info" class="font-medium-3 mr-1"></i>
+                                    <i data-feather="info" class="mr-1 font-medium-3"></i>
                                     <span class="font-weight-bold">Informations de compte</span>
                                 </a>
                             </li>
                             <!-- social -->
                             <li class="nav-item">
                                 <a class="nav-link" id="account-pill-social" data-toggle="pill" href="#account-vertical-social" aria-expanded="false">
-                                    <i data-feather="link" class="font-medium-3 mr-1"></i>
+                                    <i data-feather="link" class="mr-1 font-medium-3"></i>
                                     <span class="font-weight-bold">Réseaux sociaux</span>
                                 </a>
                             </li>
@@ -87,7 +95,7 @@
                                            <!-- </a>-->
                                            </span>
                                             <!-- upload and reset button -->
-                                            <div class="media-body mt-75 ml-1">
+                                            <div class="ml-1 media-body mt-75">
                                                 <form>
                                                     <label for="account-upload" class="btn btn-sm btn-primary mb-75 mr-75">Changer</label>
                                                     <input type="file" id="account-upload" hidden accept="image/*" />
@@ -101,7 +109,7 @@
                                         <!--/ header media -->
 
                                         <!-- form -->
-                                        <form class="validate-form mt-2">
+                                        <form class="mt-2 validate-form">
                                             <div class="row">
                                                 <div class="col-12 col-sm-6">
                                                     <div class="form-group">
@@ -140,8 +148,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
-                                                    <button type="submit" class="btn btn-primary mt-2 mr-1">Modifier</button>
-                                                    {{-- <button type="reset" class="btn btn-outline-secondary mt-2">Annuler</button> --}}
+                                                    <button type="submit" class="mt-2 mr-1 btn btn-primary">Modifier</button>
+                                                    {{-- <button type="reset" class="mt-2 btn btn-outline-secondary">Annuler</button> --}}
                                                 </div>
                                             </div>
                                         </form>
@@ -152,7 +160,8 @@
                                     <!-- change password -->
                                     <div class="tab-pane fade" id="account-vertical-password" role="tabpanel" aria-labelledby="account-pill-password" aria-expanded="false">
                                         <!-- form -->
-                                        <form class="validate-form">
+                                        <form class="validate-form" method="POST" action="{{ route('admin-change-password') }}">
+                                            @csrf
                                             <div class="row">
                                                 <div class="col-12 col-sm-6">
                                                     <div class="form-group">
@@ -160,7 +169,7 @@
                                                         <div class="input-group form-password-toggle input-group-merge">
                                                             <input type="password" class="form-control @error('password') is-invalid @enderror" id="account-old-password" name="password" placeholder="" />
                                                             <div class="input-group-append">
-                                                                <div class="input-group-text cursor-pointer">
+                                                                <div class="cursor-pointer input-group-text">
                                                                     <i data-feather="eye"></i>
                                                                 </div>
                                                             </div>
@@ -174,13 +183,13 @@
                                                     <div class="form-group">
                                                         <label for="account-new-password">Nouveau Mot de passe</label>
                                                         <div class="input-group form-password-toggle input-group-merge">
-                                                            <input type="password" id="account-new-password" name="new-password" class="form-control @error('new-password') is-invalid @enderror" placeholder="" />
+                                                            <input type="password" id="account-new-password" name="new_password" class="form-control @error('new_password') is-invalid @enderror" placeholder="" />
                                                             <div class="input-group-append">
-                                                                <div class="input-group-text cursor-pointer">
+                                                                <div class="cursor-pointer input-group-text">
                                                                     <i data-feather="eye"></i>
                                                                 </div>
                                                             </div>
-                                                            @error('new-password') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
+                                                            @error('new_password') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                                                         </div>
                                                     </div>
                                                 </div>
@@ -188,17 +197,17 @@
                                                     <div class="form-group">
                                                         <label for="account-retype-new-password">Confirmation du nouveau mot de passe</label>
                                                         <div class="input-group form-password-toggle input-group-merge">
-                                                            <input type="password" class="form-control @error('confirm-new-password') is-invalid @enderror" id="account-retype-new-password" name="confirm-new-password" placeholder="" />
+                                                            <input type="password" class="form-control @error('confirm_new_password') is-invalid @enderror" id="account-retype-new-password" name="confirm_new_password" placeholder="" />
                                                             <div class="input-group-append">
-                                                                <div class="input-group-text cursor-pointer"><i data-feather="eye"></i></div>
+                                                                <div class="cursor-pointer input-group-text"><i data-feather="eye"></i></div>
                                                             </div>
-                                                            @error('confirm-new-password') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
+                                                            @error('confirm_new_password') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
-                                                    <button type="submit" class="btn btn-primary mr-1 mt-1">Enregistrer</button>
-                                                    <button type="reset" class="btn btn-outline-secondary mt-1">Annuler</button>
+                                                    <button type="submit" class="mt-1 mr-1 btn btn-primary">Enregistrer</button>
+                                                    <button type="reset" class="mt-1 btn btn-outline-secondary">Annuler</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -213,7 +222,7 @@
                                             @csrf
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <input value={{$user->id}} name="user_id" type="text" />
+                                                    <input value={{$user->id}} name="user_id" type="hidden" />
                                                     <div class="form-group">
                                                         <label for="activite_principale">Activité principale</label>
                                                         <textarea class="form-control @error('activite_principale') is-invalid @enderror" name="activite_principale" id="activite_principale" rows="3" placeholder="Décrire vos activité principale"></textarea>
@@ -249,7 +258,7 @@
                                                 <div class="col-12 col-sm-6">
                                                     <div class="form-group">
                                                         <label for="pays">Pays</label>
-                                                        <select class="form-control @error('pays') is-invalid @enderror" id="pays">
+                                                        <select name="pays" class="form-control @error('pays') is-invalid @enderror" id="pays">
                                                             <option value="Sénégal">Sénégal</option>
                                                             <option value="France">France</option>
                                                             <option value="Canada">Canada</option>
@@ -267,8 +276,8 @@
 
                                                <small> Ajouter tout autre infos de compte nécessaire</small>
                                                 <div class="col-12">
-                                                    <button type="submit" class="btn btn-primary mt-1 mr-1">Enregistrer</button>
-                                                    <button type="reset" class="btn btn-outline-secondary mt-1">Annuler</button>
+                                                    <button type="submit" class="mt-1 mr-1 btn btn-primary">Enregistrer</button>
+                                                    <button type="reset" class="mt-1 btn btn-outline-secondary">Annuler</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -283,7 +292,7 @@
                                             <div class="row">
                                                 <!-- social header -->
                                                 <div class="col-12">
-                                                    <div class="d-flex align-items-center mb-2">
+                                                    <div class="mb-2 d-flex align-items-center">
                                                         <i data-feather="link" class="font-medium-3"></i>
                                                         <h4 class="mb-0 ml-75">Social Links</h4>
                                                     </div>
@@ -323,8 +332,8 @@
 
                                                 <div class="col-12">
                                                     <!-- submit and cancel button -->
-                                                    <button type="submit" class="btn btn-primary mr-1 mt-1">Enregistrer</button>
-                                                    <button type="reset" class="btn btn-outline-secondary mt-1">Annuler</button>
+                                                    <button type="submit" class="mt-1 mr-1 btn btn-primary">Enregistrer</button>
+                                                    <button type="reset" class="mt-1 btn btn-outline-secondary">Annuler</button>
                                                 </div>
                                             </div>
                                         </form>
