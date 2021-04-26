@@ -25,8 +25,21 @@ class Sociale_networks extends Controller
         session()->flash('message','Profil mis à jour avec succès');
         return redirect()->back();
     }
-    // public function show(Sociale_network $sociale_network)
+
+    // get
+    // public function show(Sociale_network $sociale)
     // {
-    //     return view('Admin.Users.infos',compact('sociale_network'));
+    //     return view('Admin.Users.infos',compact('sociale'))
     // }
+    // update
+    public function update(Sociale_network $sociale)
+    {
+        $data = request()->validate([
+            'facebook'=>'required',
+            'instagram'=> 'required',
+            'linkedin'=>'required'
+        ]);
+        $sociale->update($data);
+        return back();
+    }
 }

@@ -288,12 +288,13 @@
                                     <!-- social -->
                                     <div class="tab-pane fade" id="account-vertical-social" role="tabpanel" aria-labelledby="account-pill-social" aria-expanded="false">
                                         <!-- form -->
-                                        {{count($sociale)}}
-                                        @if (count($sociale) > 0 )
-                                            <form class="validate-form" method="POST" action="{{ route('add-sociale_networks') }}">
+                                        @if (count($sociales) > 0 )
+                                            <form class="validate-form" action="/admin/profile/addSociale/{{$user->id}}" method="POST">
                                                 @csrf
+                                                @method('PATCH')
                                                 <div class="row">
                                                     <!-- social header -->
+                                                    @foreach ($sociales as $sociale)
                                                     <div class="col-12">
                                                         <div class="mb-2 d-flex align-items-center">
                                                             <i data-feather="link" class="font-medium-3"></i>
@@ -304,7 +305,7 @@
                                                     <div class="col-12 col-sm-6">
                                                         <div class="form-group">
                                                             <label for="account-instagram">Instagram</label>
-                                                            <input type="text" name="instagram" id="account-instagram" class="form-control @error('instagram') is-invalid @enderror" placeholder="ajouter un lien de votre profile" value="" />
+                                                            <input type="text" value={{$sociale->instagram}} name="instagram" id="account-instagram" class="form-control @error('instagram') is-invalid @enderror" placeholder="ajouter un lien de votre profile" value="" />
                                                             <input value={{$user->id}} name="user_id" type="hidden" />
                                                             @error('instagram') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                                                         </div>
@@ -313,7 +314,7 @@
                                                     <div class="col-12 col-sm-6">
                                                         <div class="form-group">
                                                             <label for="account-facebook">Facebook</label>
-                                                            <input type="text" name="facebook" id="account-facebook" class="form-control @error('facebook') is-invalid @enderror" placeholder="ajouter un lien de votre profile" />
+                                                            <input type="text" value={{$sociale->facebook}} name="facebook" id="account-facebook" class="form-control @error('facebook') is-invalid @enderror" placeholder="ajouter un lien de votre profile" />
                                                             @error('facebook') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                                                         </div>
                                                     </div>
@@ -322,7 +323,7 @@
                                                     <div class="col-12 col-sm-6">
                                                         <div class="form-group">
                                                             <label for="account-linkedin">LinkedIn</label>
-                                                            <input type="text" name="linkedin" id="account-linkedin" class="form-control @error('linkedin') is-invalid @enderror" placeholder="ajouter un lien de votre profile"/>
+                                                            <input type="text" value={{$sociale->linkedin}} name="linkedin" id="account-linkedin" class="form-control @error('linkedin') is-invalid @enderror" placeholder="ajouter un lien de votre profile"/>
                                                             @error('linkedin') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                                                         </div>
                                                     </div>
@@ -331,7 +332,7 @@
                                                     <div class="col-12 col-sm-6">
                                                         <div class="form-group">
                                                             <label for="account-linkedin">Twitter</label>
-                                                            <input type="text" name="twitter" id="account-linkedin" class="form-control @error('twitter') is-invalid @enderror" placeholder="ajouter un lien de votre profile"/>
+                                                            <input type="text" value={{$sociale->twitter}} name="twitter" id="account-linkedin" class="form-control @error('twitter') is-invalid @enderror" placeholder="ajouter un lien de votre profile"/>
                                                             @error('twitter') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                                                         </div>
                                                     </div>
@@ -344,6 +345,8 @@
                                                         <!-- submit and cancel button -->
                                                         <button type="submit" class="mt-1 mr-1 btn btn-primary">Modifier</button>
                                                     </div>
+                                                    @endforeach
+
                                                 </div>
                                             </form>
                                             <!--/ form -->

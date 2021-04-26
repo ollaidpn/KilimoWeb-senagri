@@ -43,8 +43,9 @@ Route::post('/admin/profile/password', [App\Http\Controllers\InfosUserController
 
 // User Systeme
 Route::post('/admin/profile', [App\Http\Controllers\InfosSystemController::class, 'create'])->name('add-infos-syteme');
+// add sociale networks
 Route::post('/admin/profile/addSociale', [App\Http\Controllers\Sociale_networks::class, 'store'])->name('add-sociale_networks');
-
+Route::patch('/admin/profile/addSociale/{sociale}',[App\Http\Controllers\InfosUserController::class, 'updateSocialeNetwork'])->name('update-network');
 // culture
 Route::get('/admin/culture/ajouter', [App\Http\Livewire\Admin\Agriculture\Culture\AddCulture::class, 'addCulture'])->name('admin-addCulture');
 // type culture

@@ -19,9 +19,10 @@ class InfosUserController extends Controller
     public function index()
     {
         $user = User::find(Auth::user()->id);
-        $sociale = Sociale_network::all()->where('user_id',$user->id);
-        return view('Admin.Users.infos', compact('user','sociale'));
+        $sociales = Sociale_network::all()->where('user_id',$user->id);
+        return view('Admin.Users.infos', compact('user','sociales'));
     }
+    //
 
     public function changePassword(Request $request){
         $this->validate($request, [
@@ -88,7 +89,20 @@ class InfosUserController extends Controller
     {
         //
     }
-
+    public function updateSocialeNetwork(Sociale_network $sociale)
+    {
+        $data = request()->validate([
+            'facebook'=>'required',
+            'instagram'=> 'required',
+            'linkedin'=>'required',
+            'twitter'=> 'required'
+        ]);
+        $sociale->update($data);
+        //  session()->flash('message','Profil mis à jour avec succès');
+        //  $user = User::find(Auth::user()->id);
+        //  $sociales = Sociale_network::all()->where('user_id',$user->id);
+        return view('Admin.Users.infos');
+    }
     /**
      * Display the specified resource.
      *
