@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\InfosUser;
 use App\Models\User;
+use App\Models\Sociale_network;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -18,9 +19,8 @@ class InfosUserController extends Controller
     public function index()
     {
         $user = User::find(Auth::user()->id);
-
-
-        return view('Admin.Users.infos', compact('user'));
+        $sociale = Sociale_network::all()->where('user_id',$user->id);
+        return view('Admin.Users.infos', compact('user','sociale'));
     }
 
     public function changePassword(Request $request){
