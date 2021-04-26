@@ -28,19 +28,21 @@ class InfosSystemController extends Controller
             "date_naissance"=>"required",
             "situation_matrimoniale"=>"required",
             "adresse" => "required",
-            "pays" => "",
-            "activite_principale" => "",
         ]);
 
         $info = new InfosSystem([
+            'user_id'=>$request->get('user_id'),
             'date_naissance'=>$request->get('date_naissance'),
             'situation_matrimoniale'=>$request->get('situation_matrimoniale'),
             'adresse'=>$request->get('adresse'),
             'pays'=>$request->get('pays'),
+            'a_propos'=>$request->get('a_propos'),
             'activite_principale'=>$request->get('activite_principale'),
         ]);
-        dd($info);
-        //$info->save();
+        //dd($info);
+        $info->save();
+        session()->flash('message','Profil mis à jour avec succès');
+        return redirect()->back();
     }
 
     /**

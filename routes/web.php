@@ -39,6 +39,7 @@ Route::get('/admin/culture/type-semie', [App\Http\Livewire\Admin\Agriculture\Sem
 
 // User
 Route::get('/admin/profile', [App\Http\Controllers\InfosUserController::class, 'index'])->name('admin-infos-user');
+Route::post('/admin/profile/password', [App\Http\Controllers\InfosUserController::class, 'changePassword'])->name('admin-change-password');
 
 // User Systeme
 Route::post('/admin/profile', [App\Http\Controllers\InfosSystemController::class, 'create'])->name('add-infos-syteme');
