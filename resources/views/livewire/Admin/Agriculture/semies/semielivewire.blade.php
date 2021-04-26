@@ -56,8 +56,8 @@
                                                         width="80"
                                                         heigth="80"
                                                     />
+                                                </span>
                                             </td>
-                                            </span>
                                             <td class='d-flex'>
                                                 <button class="ml-2 btn btn-outline-info" wire:click="edit({{ $semie->id }})">
                                                     <i class="fas fa-edit"></i>
