@@ -91,15 +91,17 @@
                                         <div class="media align-items-center">
                                             <span class="avatar">
                                             {{-- <a href="javascript:void(0);" class="mr-25"> --}}
-                                                <img class="round" src="../../../app-assets/images/portrait/small/avatar-s-11.jpg" id="account-upload-img" class="rounded mr-50" alt="profile image" height="80" width="80" />
+
+                                                <img class="round" src="{{ asset('storage/uploads/users/'.$user->avatar) }}" id="account-upload-img" class="rounded mr-50" alt="profile image" height="80" width="80" />
                                            <!-- </a>-->
                                            </span>
                                             <!-- upload and reset button -->
                                             <div class="ml-1 media-body mt-75">
-                                                <form method="POST" action="{{ route('update-image-user') }}">
+                                                <form method="POST" action="/admin/profile/updateImage/{{$user->id}}" enctype="multipart/form-data">
                                                     @csrf
                                                     @method('PUT')
                                                     <label for="account-upload" class="btn btn-sm btn-primary mb-75 mr-75">Changer</label>
+                                                    <input value="{{$user->id}}" type="hidden" name="user_id"/>
                                                     <input type="file" id="account-upload" name="avatar" hidden accept="image/*" />
                                                     <button type="submit" class="mt-2 mr-1 btn btn-primary">Modifier</button>
                                                     <p>Extension autorisés JPG, GIF or PNG. taille max: 200kB</p>
@@ -111,35 +113,36 @@
                                         <!--/ header media -->
 
                                         <!-- form -->
+
                                         <form class="mt-2 validate-form" method="POST" action="/admin/profile/update/{{$user->id}}">
                                             @csrf
-                                            @method('PUT')
+                                            @method('PATCH')
                                             <div class="row">
                                                 <div class="col-12 col-sm-6">
                                                     <div class="form-group">
                                                         <label for="account-username">Prenom</label>
-                                                        <input type="text" value={{$user->prenom}} class="form-control @error('prenom') is-invalid @enderror" id="account-username" name="prenom" placeholder="Exple: Pape Ndiouga" value="" />
+                                                        <input type="text" value="{{$user->prenom}}" class="form-control @error('prenom') is-invalid @enderror" id="account-username" name="prenom" placeholder="Exple: Pape Ndiouga" />
                                                         @error('prenom') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-sm-6">
                                                     <div class="form-group">
                                                         <label for="account-name">Nom</label>
-                                                        <input type="text" value={{$user->nom}} class="form-control @error('nom') is-invalid @enderror" id="account-name" name="nom" placeholder="Exple: Diallo" value="" />
+                                                        <input type="text" value="{{$user->nom}}" class="form-control @error('nom') is-invalid @enderror" id="account-name" name="nom" placeholder="Exple: Diallo"/>
                                                         @error('nom') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-sm-6">
                                                     <div class="form-group">
                                                         <label for="account-e-mail">E-mail</label>
-                                                        <input type="email" value={{$user->email}} class="form-control @error('email') is-invalid @enderror" id="account-e-mail" name="email" placeholder="Email" value="nd.diallo@senagriculture.com" />
+                                                        <input type="email" value="{{$user->email}}" class="form-control @error('email') is-invalid @enderror" id="account-e-mail" name="email" placeholder="Email" />
                                                         @error('email') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-sm-6">
                                                     <div class="form-group">
                                                         <label for="account-company">Téléphone</label>
-                                                        <input type="number"class="form-control @error('telephone') is-invalid @enderror" id="account-company" name="telephone" placeholder="" value={{$user->telephone}} />
+                                                        <input type="number"class="form-control @error('telephone') is-invalid @enderror" id="account-company" name="telephone" placeholder="" value="{{$user->telephone}}" />
                                                         @error('telephone') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                                                     </div>
                                                 </div>

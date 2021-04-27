@@ -40,8 +40,8 @@ Route::get('/admin/culture/type-semie', [App\Http\Livewire\Admin\Agriculture\Sem
 // User
 Route::get('/admin/profile', [App\Http\Controllers\InfosUserController::class, 'index'])->name('admin-infos-user');
 Route::post('/admin/profile/password', [App\Http\Controllers\InfosUserController::class, 'changePassword'])->name('admin-change-password');
-Route::put('/admin/profile/update/{id}', [App\Http\Controllers\InfosUserController::class, 'updateUserAccount'])->name('update-infos-user');
-Route::put('/admin/profile/updateImage', [App\Http\Controllers\InfosUserController::class, 'updateUserAvatar'])->name('update-image-user');
+Route::patch('/admin/profile/update/{id}', [App\Http\Controllers\InfosUserController::class, 'Account'])->name('update-infos-user');
+Route::put('/admin/profile/updateImage/{id}', [App\Http\Controllers\InfosUserController::class, 'updateUserAvatar'])->name('update-image-user');
 
 // User Systeme
 Route::post('/admin/profile', [App\Http\Controllers\InfosSystemController::class, 'create'])->name('add-infos-syteme');

@@ -31,10 +31,9 @@ class InfosUserController extends Controller
         $this->validate($request, [
 
             'password' => 'required',
-            'new_password' => 'required',
-            'confirm_new_password' => 'required',
+            'new_password' => ['required', 'string', 'min:8'],
+            'confirm_new_password' => ['required', 'string', 'min:8'],
             ]);
-
 
 
         $hashedPassword = Auth::user()->password;
@@ -44,13 +43,13 @@ class InfosUserController extends Controller
 
         $newpassword = $request->new_password;
         $confirmpassword = $request->confirm_new_password;
-
+        //dd($newpassword);
         if ($oldPasswordHashed) {
 
             if (!$newPasswordHashed) {
                 if($newpassword == $confirmpassword){
                   $users = User::find(Auth::user()->id);
-                  $passwordChange = Hash::make($request->newpassword);
+                  $passwordChange = Hash::make($newpassword);
                   $users->update(['password' =>  $passwordChange]);
 
                   session()->flash('message','Mot de passe modifier avec succès');
@@ -76,41 +75,46 @@ class InfosUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function updateUserAccount()
+
+    public function Account(Request $request, User $id)
     {
-        $user = request()->validate([
-            'user_id' => "required",
-            'prenom' => "required",
-            'nom' => "required",
-            'email' => "required",
-            'telephone' => "required",
+        $userinfo = new User([
+            'user_id' => $request->get('user_id'),
+            'prenom' => $request->get('prenom'),
+            'nom' => $request->get('nom'),
+            'email' => $request->get('email'),
+            'telephone' => $request->get('telephone'),
         ]);
 
-        dd($user);
-        //$id->update($user);
+
+        $id->update($request->all());
         session()->flash('message','Compte modifier avec succès');
         return redirect()->back();
+
+
     }
 
-    public function updateUserAvatar(User $id)
+    public function updateUserAvatar(Request $request, User $id)
     {
-        $user = request()->validate([
-            'user_id' => "required",
-            'image' => "required",
-        ]);
-        $imageSelect = $user['image'];
-        dd($imageSelect);
 
-        /* if ($request->hasFile('image')) {
 
-            $file_name = time().'.'.$request->image->getClientOriginalExtension();
-            $path_name = 'storage/uploads/produits/'.'1'. date('Y')."/". date('F'). '/';
+         if ($request->hasFile('avatar')) {
 
-            if ($request->image->move($path_name, $file_name)) {
-                $imageSelect->image = $path_name.$file_name;
-            }
+            $file_name = time().'.'.$request->avatar->extension();
+            $path_name = 'storage/uploads/users/';
+            //dd($path_name);
+            $request->avatar->move($path_name, $file_name);
 
-        } */
+
+
+
+            $id->update($request->all());
+            session()->flash('message','Compte modifier avec succès');
+            return redirect()->back();
+
+
+
+        }
     }
 
 }
