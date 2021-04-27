@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\InfosSystem;
 use App\Models\InfosUser;
 use App\Models\User;
 use App\Models\Sociale_network;
@@ -19,8 +20,10 @@ class InfosUserController extends Controller
     public function index()
     {
         $user = User::find(Auth::user()->id);
-        $sociales = Sociale_network::all()->where('user_id',$user->id);
-        return view('Admin.Users.infos', compact('user','sociales'));
+        $sociales = Sociale_network::all()->where('user_id', $user->id);
+        $abouts = InfosSystem::all()->where('user_id',  $user->id);
+
+        return view('Admin.Users.infos', compact('user', 'sociales', 'abouts'));
     }
     //
 
@@ -42,9 +45,9 @@ class InfosUserController extends Controller
         $newpassword = $request->new_password;
         $confirmpassword = $request->confirm_new_password;
 
-           if ($oldPasswordHashed) {
+        if ($oldPasswordHashed) {
 
-             if (!$newPasswordHashed) {
+            if (!$newPasswordHashed) {
                 if($newpassword == $confirmpassword){
                   $users = User::find(Auth::user()->id);
                   $passwordChange = Hash::make($request->newpassword);
@@ -53,98 +56,62 @@ class InfosUserController extends Controller
                   session()->flash('message','Mot de passe modifier avec succès');
                   return redirect()->back();
                 }else{
-                    session()->flash('message','Vos mot de passe ne correspondent pas');
-                      return redirect()->back();
+                    session()->flash('message','Vos mots de passe ne correspondent pas');
+                    return redirect()->back();
                 }
             }else{
-                      session()->flash('message','Vous devez mettre un mot de passe différente de votre ancienne mot de passe');
-                      return redirect()->back();
-                    }
+                session()->flash('message','Vous devez mettre un mot de passe différente de votre ancienne mot de passe');
+                return redirect()->back();
+            }
 
-               }else{
-                   session()->flash('message','Votre mot de passe n\'est pas valide ');
-                   return redirect()->back();
-                 }
+        }else{
+            session()->flash('message','Votre mot de passe n\'est pas valide ');
+            return redirect()->back();
+        }
 
-           }
-
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Display a listing of the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function updateUserAccount()
     {
-        //
-    }
-    public function updateSocialeNetwork(Sociale_network $sociale)
-    {
-        $data = request()->validate([
-            'facebook'=>'required',
-            'instagram'=> 'required',
-            'linkedin'=>'required',
-            'twitter'=> 'required'
+        $user = request()->validate([
+            'user_id' => "required",
+            'prenom' => "required",
+            'nom' => "required",
+            'email' => "required",
+            'telephone' => "required",
         ]);
-        $sociale->update($data);
-        //  session()->flash('message','Profil mis à jour avec succès');
-        //  $user = User::find(Auth::user()->id);
-        //  $sociales = Sociale_network::all()->where('user_id',$user->id);
-        return view('Admin.Users.infos');
-    }
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\InfosUser  $infosUser
-     * @return \Illuminate\Http\Response
-     */
-    public function show(InfosUser $infosUser)
-    {
-        //
+
+        dd($user);
+        //$id->update($user);
+        session()->flash('message','Compte modifier avec succès');
+        return redirect()->back();
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\InfosUser  $infosUser
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(InfosUser $infosUser)
+    public function updateUserAvatar(User $id)
     {
-        //
+        $user = request()->validate([
+            'user_id' => "required",
+            'image' => "required",
+        ]);
+        $imageSelect = $user['image'];
+        dd($imageSelect);
+
+        /* if ($request->hasFile('image')) {
+
+            $file_name = time().'.'.$request->image->getClientOriginalExtension();
+            $path_name = 'storage/uploads/produits/'.'1'. date('Y')."/". date('F'). '/';
+
+            if ($request->image->move($path_name, $file_name)) {
+                $imageSelect->image = $path_name.$file_name;
+            }
+
+        } */
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\InfosUser  $infosUser
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, InfosUser $infosUser)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\InfosUser  $infosUser
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(InfosUser $infosUser)
-    {
-        //
-    }
 }
+

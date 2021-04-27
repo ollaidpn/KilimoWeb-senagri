@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\InfosSystem;
 use Illuminate\Http\Request;
 use App\Models\Sociale_network;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 class Sociale_networks extends Controller
 {
     public function store(Request $request)
@@ -26,20 +30,23 @@ class Sociale_networks extends Controller
         return redirect()->back();
     }
 
-    // get
-    // public function show(Sociale_network $sociale)
-    // {
-    //     return view('Admin.Users.infos',compact('sociale'))
-    // }
-    // update
-    public function update(Sociale_network $sociale)
+
+    public function updateSocialeNetwork(Sociale_network $sociale)
     {
+        $user = User::find(Auth::user()->id);
+        $sociales = Sociale_network::all()->where('user_id', $user->id);
+        $abouts = InfosSystem::all()->where('user_id',  $user->id);
+
         $data = request()->validate([
             'facebook'=>'required',
             'instagram'=> 'required',
-            'linkedin'=>'required'
+            'linkedin'=>'required',
+            'twitter'=> 'required'
         ]);
         $sociale->update($data);
-        return back();
+        //
+        session()->flash('message','Social média mis à jour avec succès');
+        return redirect()->back();
+        //return view('Admin.Users.infos', compact('user', 'sociales', 'abouts'));
     }
 }

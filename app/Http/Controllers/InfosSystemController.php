@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\InfosSystem;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class InfosSystemController extends Controller
@@ -46,58 +47,32 @@ class InfosSystemController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\InfosSystem  $infosSystem
-     * @return \Illuminate\Http\Response
-     */
-    public function show(InfosSystem $infosSystem)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\InfosSystem  $infosSystem
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(InfosSystem $infosSystem)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\InfosSystem  $infosSystem
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, InfosSystem $infosSystem)
+    public function update(InfosSystem $id)
     {
-        //
+
+        $info = request()->validate([
+            'user_id' => "required",
+            'date_naissance' => "required",
+            'situation_matrimoniale' => "required",
+            'adresse' => "required",
+            'pays' => "",
+            'a_propos' => "",
+            'activite_principale' => "",
+        ]);
+
+
+        $id->update($info);
+        session()->flash('message','Profil modifier avec succès');
+        return redirect()->back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\InfosSystem  $infosSystem
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(InfosSystem $infosSystem)
-    {
-        //
-    }
+
+
+
 }

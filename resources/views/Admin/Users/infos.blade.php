@@ -96,10 +96,12 @@
                                            </span>
                                             <!-- upload and reset button -->
                                             <div class="ml-1 media-body mt-75">
-                                                <form>
+                                                <form method="POST" action="{{ route('update-image-user') }}">
+                                                    @csrf
+                                                    @method('PUT')
                                                     <label for="account-upload" class="btn btn-sm btn-primary mb-75 mr-75">Changer</label>
-                                                    <input type="file" id="account-upload" hidden accept="image/*" />
-                                                    <!--   <button class="btn btn-sm btn-outline-secondary mb-75">restaurer</button> -->
+                                                    <input type="file" id="account-upload" name="avatar" hidden accept="image/*" />
+                                                    <button type="submit" class="mt-2 mr-1 btn btn-primary">Modifier</button>
                                                     <p>Extension autorisés JPG, GIF or PNG. taille max: 200kB</p>
                                                     @error('avatar') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                                                 </form>
@@ -109,7 +111,9 @@
                                         <!--/ header media -->
 
                                         <!-- form -->
-                                        <form class="mt-2 validate-form">
+                                        <form class="mt-2 validate-form" method="POST" action="/admin/profile/update/{{$user->id}}">
+                                            @csrf
+                                            @method('PUT')
                                             <div class="row">
                                                 <div class="col-12 col-sm-6">
                                                     <div class="form-group">
@@ -128,7 +132,7 @@
                                                 <div class="col-12 col-sm-6">
                                                     <div class="form-group">
                                                         <label for="account-e-mail">E-mail</label>
-                                                        <input type="email" value={{$user->email}} disabled class="form-control @error('email') is-invalid @enderror" id="account-e-mail" name="email" placeholder="Email" value="nd.diallo@senagriculture.com" />
+                                                        <input type="email" value={{$user->email}} class="form-control @error('email') is-invalid @enderror" id="account-e-mail" name="email" placeholder="Email" value="nd.diallo@senagriculture.com" />
                                                         @error('email') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                                                     </div>
                                                 </div>
@@ -139,14 +143,14 @@
                                                         @error('telephone') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                                                     </div>
                                                 </div>
-                                                <div class="col-12 mt-75">
+                                               {{--  <div class="col-12 mt-75">
                                                     <div class="alert alert-warning mb-50" role="alert">
                                                         <h4 class="alert-heading">Votre adress email n'est pas confirmé.</h4>
                                                         <div class="alert-body">
                                                             <a href="javascript: void(0);" class="alert-link">Renvoyer le mail de confirmation.</a>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                                 <div class="col-12">
                                                     <button type="submit" class="mt-2 mr-1 btn btn-primary">Modifier</button>
                                                     {{-- <button type="reset" class="mt-2 btn btn-outline-secondary">Annuler</button> --}}
@@ -163,7 +167,7 @@
                                         <form class="validate-form" method="POST" action="{{ route('admin-change-password') }}">
                                             @csrf
                                             <div class="row">
-                                                <div class="col-12 col-sm-6">
+                                                <div class="col-md-12 col-sm-6">
                                                     <div class="form-group">
                                                         <label for="account-old-password">Ancien mot de passe</label>
                                                         <div class="input-group form-password-toggle input-group-merge">
@@ -173,13 +177,14 @@
                                                                     <i data-feather="eye"></i>
                                                                 </div>
                                                             </div>
-                                                            @error('password') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                                                         </div>
+                                                        @error('password') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
+
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-12 col-sm-6">
+                                                <div class="col-md-12 col-sm-6">
                                                     <div class="form-group">
                                                         <label for="account-new-password">Nouveau Mot de passe</label>
                                                         <div class="input-group form-password-toggle input-group-merge">
@@ -189,11 +194,13 @@
                                                                     <i data-feather="eye"></i>
                                                                 </div>
                                                             </div>
-                                                            @error('new_password') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                                                         </div>
+                                                        @error('new_password') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-sm-6">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-6">
                                                     <div class="form-group">
                                                         <label for="account-retype-new-password">Confirmation du nouveau mot de passe</label>
                                                         <div class="input-group form-password-toggle input-group-merge">
@@ -201,10 +208,12 @@
                                                             <div class="input-group-append">
                                                                 <div class="cursor-pointer input-group-text"><i data-feather="eye"></i></div>
                                                             </div>
-                                                            @error('confirm_new_password') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                                                         </div>
+                                                        @error('confirm_new_password') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <div class="row">
                                                 <div class="col-12">
                                                     <button type="submit" class="mt-1 mr-1 btn btn-primary">Enregistrer</button>
                                                     <button type="reset" class="mt-1 btn btn-outline-secondary">Annuler</button>
@@ -218,6 +227,76 @@
                                     <!-- information -->
                                     <div class="tab-pane fade" id="account-vertical-info" role="tabpanel" aria-labelledby="account-pill-info" aria-expanded="false">
                                         <!-- form -->
+                                        @if (count($abouts) > 0 )
+                                        <form class="validate-form" method="POST" action="/admin/profile/system/update/{{$user->id}}">
+                                            @csrf
+                                            @method('PUT')
+                                            <div class="row">
+                                                @foreach ($abouts as $about)
+                                                <div class="col-12">
+                                                    <input value={{$user->id}} name="user_id" type="hidden" />
+                                                    <div class="form-group">
+                                                        <label for="activite_principale">Activité principale</label>
+                                                        <textarea class="form-control @error('activite_principale') is-invalid @enderror" name="activite_principale" id="activite_principale" rows="3" placeholder="Décrire vos activité principale">
+                                                            {{$about->activite_principale}}
+                                                        </textarea>
+                                                        @error('activite_principale') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="accountTextarea">A propos de moi ou de mon champs</label>
+                                                        <textarea class="form-control @error('a_propos') is-invalid @enderror" name="a_propos" id="accountTextarea" rows="3" placeholder="Faites nous une briève description de vous ou de vos champs">
+                                                            {{$about->a_propos}}
+                                                        </textarea>
+                                                        @error('a_propos') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="account-birth-date">Date de naissance</label>
+                                                        <input type="date" value="{{$about->date_naissance}}" class="form-control flatpickr @error('date_naissance') is-invalid @enderror" placeholder="" id="account-birth-date" name="date_naissance" />
+                                                        @error('date_naissance') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="situation">Situation matrimoniale</label>
+                                                        <select name="situation_matrimoniale"  class="form-control @error('situation_matrimoniale') is-invalid @enderror" id="situation">
+                                                            <option {{ ($about->situation_matrimoniale) == 'Marié(e)' ? 'selected' : '' }} value="Marié(e)">Marié(e) </option>
+                                                            <option {{ ($about->situation_matrimoniale) == 'Célibataire(e)' ? 'selected' : '' }} value="Célibataire(e)">Célibataire(e)</option>
+                                                            <option {{ ($about->situation_matrimoniale) == 'Veuve' ? 'selected' : '' }} value="Veuve">Veuve</option>
+                                                            <option {{ ($about->situation_matrimoniale) == 'Divorcée' ? 'selected' : '' }} value="Divorcée">Divorcée</option>
+                                                        </select>
+                                                        @error('situation_matrimoniale') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="pays">Pays</label>
+                                                        <select name="pays" value="{{$about->pays}}" class="form-control @error('pays') is-invalid @enderror" id="pays">
+                                                            <option {{ ($about->pays) == 'Sénégal' ? 'selected' : '' }} value="Sénégal">Sénégal</option>
+                                                            <option {{ ($about->pays) == 'France' ? 'selected' : '' }} value="France">France</option>
+                                                            <option {{ ($about->pays) == 'Canada' ? 'selected' : '' }} value="Canada">Canada</option>
+                                                        </select>
+                                                        @error('pays') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="account-website">Adresse</label>
+                                                        <input type="text" value="{{$about->adresse}}" class="form-control @error('adresse') is-invalid @enderror" name="adresse" id="account-website" placeholder="address" />
+                                                        @error('adresse') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
+                                                    </div>
+                                                </div>
+                                                @endforeach
+                                                <div class="col-12">
+                                                    <button type="submit" class="mt-1 mr-1 btn btn-primary">Modifier</button>
+                                                    <button type="reset" class="mt-1 btn btn-outline-secondary">Annuler</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        @else
                                         <form class="validate-form" method="POST" action="{{ route('add-infos-syteme') }}">
                                             @csrf
                                             <div class="row">
@@ -281,6 +360,8 @@
                                                 </div>
                                             </div>
                                         </form>
+                                        @endif
+
                                         <!--/ form -->
                                     </div>
                                     <!--/ information -->
