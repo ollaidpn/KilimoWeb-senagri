@@ -35,7 +35,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/pages/page-blog.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/all.min.css')}}">
     <!-- END: Page CSS-->
-
+    {{-- ajout css --}}
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     @livewireStyles
 </head>
 <!-- END: Head-->

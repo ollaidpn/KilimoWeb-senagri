@@ -88,23 +88,24 @@
                                     <!-- general tab -->
                                     <div role="tabpanel" class="tab-pane active" id="account-vertical-general" aria-labelledby="account-pill-general" aria-expanded="true">
                                         <!-- header media -->
-                                        <div class="media align-items-center">
+                                        <div width="100%" class="text-center">
                                             <span class="avatar">
                                             {{-- <a href="javascript:void(0);" class="mr-25"> --}}
-
-                                                <img class="round" src="{{ asset('storage/uploads/users/'.$user->avatar) }}" id="account-upload-img" class="rounded mr-50" alt="profile image" height="80" width="80" />
+                                                <img src="" class="img-thumbnail" width="200px" height="200px">
                                            <!-- </a>-->
                                            </span>
+                                            </div>
+                                        <div class="media align-items-center" width="100%">
                                             <!-- upload and reset button -->
-                                            <div class="ml-1 media-body mt-75">
+                                            <div class="ml-1 media-body mt-75 text-center">
                                                 <form method="POST" action="/admin/profile/updateImage/{{$user->id}}" enctype="multipart/form-data">
                                                     @csrf
                                                     @method('PUT')
-                                                    <label for="account-upload" class="btn btn-sm btn-primary mb-75 mr-75">Changer</label>
                                                     <input value="{{$user->id}}" type="hidden" name="user_id"/>
                                                     <input type="file" id="account-upload" name="avatar" hidden accept="image/*" />
+                                                    <label for="account-upload" class="btn btn-primary mt-2 mb-75 mr-75">changer
+                                                    </label>
                                                     <button type="submit" class="mt-2 mr-1 btn btn-primary">Modifier</button>
-                                                    <p>Extension autorisés JPG, GIF or PNG. taille max: 200kB</p>
                                                     @error('avatar') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                                                 </form>
                                             </div>
@@ -389,7 +390,7 @@
                                                     <div class="col-12 col-sm-6">
                                                         <div class="form-group">
                                                             <label for="account-instagram">Instagram</label>
-                                                            <input type="text" value={{$sociale->instagram}} name="instagram" id="account-instagram" class="form-control @error('instagram') is-invalid @enderror" placeholder="ajouter un lien de votre profile" value="" />
+                                                            <input type="text" value="{{$sociale->instagram}}" name="instagram" id="account-instagram" class="form-control @error('instagram') is-invalid @enderror" placeholder="ajouter un lien de votre profile" value="" />
                                                             <input value={{$user->id}} name="user_id" type="hidden" />
                                                             @error('instagram') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                                                         </div>
@@ -398,7 +399,7 @@
                                                     <div class="col-12 col-sm-6">
                                                         <div class="form-group">
                                                             <label for="account-facebook">Facebook</label>
-                                                            <input type="text" value={{$sociale->facebook}} name="facebook" id="account-facebook" class="form-control @error('facebook') is-invalid @enderror" placeholder="ajouter un lien de votre profile" />
+                                                            <input type="text" value="{{$sociale->facebook}}" name="facebook" id="account-facebook" class="form-control @error('facebook') is-invalid @enderror" placeholder="ajouter un lien de votre profile" />
                                                             @error('facebook') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                                                         </div>
                                                     </div>
@@ -407,7 +408,7 @@
                                                     <div class="col-12 col-sm-6">
                                                         <div class="form-group">
                                                             <label for="account-linkedin">LinkedIn</label>
-                                                            <input type="text" value={{$sociale->linkedin}} name="linkedin" id="account-linkedin" class="form-control @error('linkedin') is-invalid @enderror" placeholder="ajouter un lien de votre profile"/>
+                                                            <input type="text" value="{{$sociale->linkedin}}" name="linkedin" id="account-linkedin" class="form-control @error('linkedin') is-invalid @enderror" placeholder="ajouter un lien de votre profile"/>
                                                             @error('linkedin') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                                                         </div>
                                                     </div>
@@ -416,7 +417,7 @@
                                                     <div class="col-12 col-sm-6">
                                                         <div class="form-group">
                                                             <label for="account-linkedin">Twitter</label>
-                                                            <input type="text" value={{$sociale->twitter}} name="twitter" id="account-linkedin" class="form-control @error('twitter') is-invalid @enderror" placeholder="ajouter un lien de votre profile"/>
+                                                            <input type="text" value="{{$sociale->twitter}}" name="twitter" id="account-linkedin" class="form-control @error('twitter') is-invalid @enderror" placeholder="ajouter un lien de votre profile"/>
                                                             @error('twitter') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                                                         </div>
                                                     </div>
@@ -505,7 +506,6 @@
                 </div>
             </section>
             <!-- / account setting page -->
-
         </div>
     </div>
 </div>
