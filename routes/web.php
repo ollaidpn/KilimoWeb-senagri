@@ -39,11 +39,21 @@ Route::get('/admin/culture/type-semie', [App\Http\Livewire\Admin\Agriculture\Sem
 
 // User
 Route::get('/admin/profile', [App\Http\Controllers\InfosUserController::class, 'index'])->name('admin-infos-user');
+Route::post('/admin/profile/password', [App\Http\Controllers\InfosUserController::class, 'changePassword'])->name('admin-change-password');
+Route::patch('/admin/profile/update/{id}', [App\Http\Controllers\InfosUserController::class, 'Account'])->name('update-infos-user');
+Route::put('/admin/profile/updateImage/{id}', [App\Http\Controllers\InfosUserController::class, 'updateUserAvatar'])->name('update-image-user');
 
+// User Systeme
+Route::post('/admin/profile', [App\Http\Controllers\InfosSystemController::class, 'create'])->name('add-infos-syteme');
+Route::put('/admin/profile/system/update/{id}', [App\Http\Controllers\InfosSystemController::class, 'update'])->name('update-infos-syteme');
 
+// add sociale networks
+Route::post('/admin/profile/addSociale', [App\Http\Controllers\Sociale_networks::class, 'store'])->name('add-sociale_networks');
+Route::patch('/admin/profile/addSociale/{sociale}',[App\Http\Controllers\Sociale_networks::class, 'updateSocialeNetwork'])->name('update-network');
 
 // culture
 Route::get('/admin/culture/ajouter', [App\Http\Livewire\Admin\Agriculture\Culture\AddCulture::class, 'addCulture'])->name('admin-addCulture');
+
 // type culture
 Route::get('/admin/culture/type-culture', [App\Http\Livewire\Admin\Agriculture\TypeCulture\TypeCulture::class, 'index'])->name('admin-typesCulture');
 
