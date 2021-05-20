@@ -16,9 +16,9 @@ class Varietelivewire extends Component
     {
         $varietes = CulturesVariete::
                     join('cultures', 'cultures.id', '=', 'cultures_varietes.culture_id')
-                    ->get(['cultures_varietes.*', 'nom_culture']);
+                    ->get(['cultures_varietes.*', 'nom_speculation']);
 
-        $cultures = Culture::pluck('nom_culture', 'id');
+        $cultures = Culture::pluck('nom_speculation', 'id');
         $selectedID = 1;
         $updateMode = false;
 

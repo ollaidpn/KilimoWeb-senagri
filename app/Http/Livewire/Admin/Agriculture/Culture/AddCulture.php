@@ -11,13 +11,13 @@ class AddCulture extends Component
 {
     public function render()
     {
-        $cultureType =
+        //$cultureType =
         $user = User::find(Auth::user()->id);
         $cultures = Culture::All();
         return view('livewire.Admin.Agriculture.Culture.add-culture',compact('user','cultures'));
     }
     use WithFileUploads;
-    public $nom_culture,$description,$image,$culture_id;
+    public $nom_speculation, $fertilisation, $irrigation, $image, $typeculture_id, $traitement_id, $culture_id;
     public $updateMode = false;
 
     public function addCulture()
@@ -28,14 +28,17 @@ class AddCulture extends Component
     }
     public function resetInput()
     {
-        $this->nom_culture='';
-        $this->description='';
+        $this->nom_speculation='';
+        $this->fertilisation='';
+        $this->irrigation='';
         $this->image='';
+        $this->typeculture_id='';
+        $this->traitement_id='';
     }
     // pour personnaliser les message d'erreur
     protected $messages = [
-        'nom_culture.required'=>'Le champ nom culture est obligatoire.',
-        'description.required'=>'Le champ description est obligatoire.',
+        'nom_speculation.required'=>'Le nom de la spéculation est obligatoire.',
+        'fertilisation.required'=>'Merci de définir le taux de fertilisation est obligatoire.',
         'image'=>'Le champ image est obligatoire.'
     ];
     public function store(Request $request)
@@ -91,7 +94,7 @@ class AddCulture extends Component
     }
     public function update()
     {
-        $validaeDate = $this->validate([
+        $validateDate = $this->validate([
             'nom_culture'=>'required',
             'description'=>'required',
             'image'=>'required'

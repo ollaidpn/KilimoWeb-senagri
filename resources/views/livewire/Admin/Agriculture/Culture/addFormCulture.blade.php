@@ -25,28 +25,49 @@
     </div>
     <div class="card">
         <div class="card-header">
-            <h4 class="card-title">Ajouter culture</h4>
+            <h4 class="card-title">Ajouter spéculation</h4>
         </div>
         <div class="card-body">
             <form class="form form-vertical">
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="first-name-vertical">Nom culture</label>
+                            <label for="first-name-vertical">Nom Spéculation</label>
+                            <input type="text" id="first-name-vertical" class="form-control @error('nom_culture') is-invalid @enderror" wire:model='nom_culture' placeholder="Ex: oignon" />
+                            @error('nom_culture') <p class="ml-1 text-danger error">{{ $message }}</p> @enderror
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="first-name-vertical">Type culture</label>
                             <input type="text" id="first-name-vertical" class="form-control @error('nom_culture') is-invalid @enderror" wire:model='nom_culture' placeholder="Nom culture" />
                             @error('nom_culture') <p class="ml-1 text-danger error">{{ $message }}</p> @enderror
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="first-name-vertical">Description</label>
-                            <textarea type="text" id="first-name-vertical" class="form-control @error('description') is-invalid @enderror" wire:model='description' placeholder="Description"></textarea>
+                            <label for="first-name-vertical">Fertilisation</label>
+                            <input type="text" id="first-name-vertical" class="form-control @error('nom_culture') is-invalid @enderror" wire:model='nom_culture' placeholder="fertilisation" />
+                            @error('nom_culture') <p class="ml-1 text-danger error">{{ $message }}</p> @enderror
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="first-name-vertical">Irrigation</label>
+                            <input type="text" id="first-name-vertical" class="form-control @error('nom_culture') is-invalid @enderror" wire:model='nom_culture' placeholder="irrigation" />
+                            @error('nom_culture') <p class="ml-1 text-danger error">{{ $message }}</p> @enderror
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="first-name-vertical">Traitement(s)</label>
+                            <textarea type="text" id="first-name-vertical" class="form-control @error('description') is-invalid @enderror" wire:model='description' placeholder="traitement"></textarea>
                             @error('description') <p class="ml-1 text-danger error">{{ $message }}</p> @enderror
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="contact-info-vertical">image culture</label>
+                            <label for="contact-info-vertical">image spéculation</label>
                             <input type="file" id="contact-info-vertical" class="form-control @error('image') is-invalid @enderror" wire:model='image' name="contact" placeholder="Mobile" />
                             @error('image') <p class="ml-1 text-danger error">{{ $message }}</p> @enderror
                         </div>

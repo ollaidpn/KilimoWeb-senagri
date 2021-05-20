@@ -15,9 +15,12 @@ class CreateCulturesTable extends Migration
     {
         Schema::create('cultures', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('typeculture_id')->default(1);
-            $table->string('nom_culture', 250);
-            $table->text('description');
+            $table->string('nom_speculation', 250);
+            $table->string('fertilisation', 250);
+            $table->string('irrigation_phase_croissance', 250);
+            $table->string('irrigation_phase_maturite', 250);
+            $table->foreignId('climat_id')->constrained('climats');
+            $table->foreignId('type_sol_id')->constrained('sols');
             $table->string('image');
             $table->timestamps();
         });

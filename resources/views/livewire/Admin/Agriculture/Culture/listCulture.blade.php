@@ -1,7 +1,7 @@
 <div class="col-md-8 col-12">
     <div class="card">
         <div class="card-header">
-            <h4 class="card-title">Liste des Cultures</h4>
+            <h4 class="card-title">Liste des Spéculations</h4>
         </div>
         <div class="ml-2 card-content">
             <div class="card-body card-dashboard">
@@ -11,8 +11,8 @@
                             <tr style="width: 100%">
                                 <th style="width: 20%">Id</th>
                                 <th style="width: 20%">Type de culture</th>
-                                <th style="width: 20%">Nom culture</th>
-                                <th style="width: 20%">decsription</th>
+                                <th style="width: 20%">Nom spéculation</th>
+                                <th style="width: 20%">fertilisation</th>
                                 <th style="width: 20%">Image</th>
                                 <th style="width: 20%">Création</th>
                                 <th style="width: 20%">Action</th>

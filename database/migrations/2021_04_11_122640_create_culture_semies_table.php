@@ -18,7 +18,7 @@ class CreateCultureSemiesTable extends Migration
             $table->string('nom_semie');
             $table->string('description');
             $table->string('image')->default("");
-            $table->foreignId('culture_id')->constrained('cultures');
+            $table->foreignId('type_culture_id')->constrained('cultures_types');
             $table->timestamps();
         });
     }

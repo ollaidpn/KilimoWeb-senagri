@@ -16,9 +16,9 @@
                     </div>
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="contact-info-vertical">Type de culture</label>
+                            <label for="contact-info-vertical">Spéculation</label>
                             <select wire:model="culture_id" class="form-control @error('culture_id') is-invalid @enderror">
-                                <option>Choisir le type de culture</option>
+                                <option>Choisir la spéculation</option>
                                 @foreach ($cultures as $key => $value)
                                     <option value="{{ $key }}"
                                         {{ $key == $selectedID ? 'selected' : '' }}>

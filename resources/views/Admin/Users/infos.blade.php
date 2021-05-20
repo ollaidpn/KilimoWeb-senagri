@@ -91,19 +91,19 @@
                                         <div width="100%" class="text-center">
                                             <span class="avatar">
                                             {{-- <a href="javascript:void(0);" class="mr-25"> --}}
-                                                <img src="" class="img-thumbnail" width="200px" height="200px">
+                                                <img src="{{ asset('storage/uploads/users/'.$user->avatar) }}" class="img-thumbnail" width="200px" height="200px">
                                            <!-- </a>-->
                                            </span>
                                             </div>
                                         <div class="media align-items-center" width="100%">
                                             <!-- upload and reset button -->
-                                            <div class="ml-1 media-body mt-75 text-center">
+                                            <div class="ml-1 text-center media-body mt-75">
                                                 <form method="POST" action="/admin/profile/updateImage/{{$user->id}}" enctype="multipart/form-data">
                                                     @csrf
                                                     @method('PUT')
                                                     <input value="{{$user->id}}" type="hidden" name="user_id"/>
                                                     <input type="file" id="account-upload" name="avatar" hidden accept="image/*" />
-                                                    <label for="account-upload" class="btn btn-primary mt-2 mb-75 mr-75">changer
+                                                    <label for="account-upload" class="mt-2 btn btn-primary mb-75 mr-75">changer
                                                     </label>
                                                     <button type="submit" class="mt-2 mr-1 btn btn-primary">Modifier</button>
                                                     @error('avatar') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
