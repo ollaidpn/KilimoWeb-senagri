@@ -16,7 +16,7 @@
             <div class="navbar-container main-menu-content" data-menu="menu-container">
                 <!-- include ../../../includes/mixins-->
                 <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
-                    <li class="{{$dashboard ?? "active"}}"><a class="nav-link d-flex align-items-center" href="index.html" ><i data-feather="home"></i><span data-i18n="Dashboards">Tableau de bord</span></a>
+                    <li class="{{$dashboard ?? "active"}}"><a class="nav-link d-flex align-items-center" href="{{route('admin')}}" ><i data-feather="home"></i><span data-i18n="Dashboards">Tableau de bord</span></a>
 
                     </li>
                     <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-toggle="dropdown"><i data-feather="package"></i><span data-i18n="Apps">Agriculture</span></a>
@@ -26,13 +26,17 @@
                                 <ul class="dropdown-menu">
                                     <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="{{route('admin-cultures')}}" data-toggle="dropdown" data-i18n="Shop"><i data-feather="circle"></i><span data-i18n="Shop">Tous les cultures</span></a>
                                     </li>
-                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="{{route('admin-addCulture')}}" data-toggle="dropdown" data-i18n="Details"><i data-feather="circle"></i><span data-i18n="Details">Ajouter culture</span></a>
-                                    </li>
-                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="{{route('admin-typesCulture')}}" data-toggle="dropdown" data-i18n="Wishlist"><i data-feather="circle"></i><span data-i18n="Wishlist">Type de culture</span></a>
+                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="{{route('admin-addCulture')}}" data-toggle="dropdown" data-i18n="Details"><i data-feather="circle"></i><span data-i18n="Details">Ajouter Spéculation</span></a>
                                     </li>
                                     <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="{{route('admin-varietesCulture')}}" data-toggle="dropdown" data-i18n="Checkout"><i data-feather="circle"></i><span data-i18n="Checkout">Varièté de culture</span></a>
                                     </li>
+                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="{{route('admin-typesCulture')}}" data-toggle="dropdown" data-i18n="Wishlist"><i data-feather="circle"></i><span data-i18n="Wishlist">Type de culture</span></a>
+                                    </li>
                                     <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="{{route('admin-type-semie')}}" data-toggle="dropdown" data-i18n="Checkout"><i data-feather="circle"></i><span data-i18n="Checkout">Type de semie</span></a>
+                                    </li>
+                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="{{route('admin-type-climat')}}" data-toggle="dropdown" data-i18n="Checkout"><i data-feather="circle"></i><span data-i18n="Checkout">Type de climat</span></a>
+                                    </li>
+                                    <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="{{route('admin-type-sols')}}" data-toggle="dropdown" data-i18n="Checkout"><i data-feather="circle"></i><span data-i18n="Checkout">Type de sol</span></a>
                                     </li>
                                 </ul>
                             </li>

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Agriculture\Semies;
 
 use App\Models\Culture;
 use App\Models\CultureSemie;
+use App\Models\CulturesType;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -15,17 +16,17 @@ class Semielivewire extends Component
     use WithFileUploads;
 
     public $updateMode;
-    public $nom_semie, $culture_id, $description, $image, $imageView,$semie, $id_semie;
+    public $nom_semie, $type_culture_id, $description, $image, $imageView,$semie, $id_semie;
 
     public function render()
     {
 
         $user = User::find(Auth::user()->id);
         $semies = CultureSemie::
-                    join('cultures', 'cultures.id', '=', 'culture_semies.culture_id')
-                    ->get(['culture_semies.*', 'nom_culture']);
+                    join('cultures_types', 'cultures_types.id', '=', 'culture_semies.type_culture_id')
+                    ->get(['culture_semies.*', 'nom_typeculture']);
 
-        $cultures = Culture::pluck('nom_culture', 'id');
+        $cultures = CulturesType::pluck('nom_typeculture', 'id');
         $selectedID = 1;
 
         return view('livewire.Admin.Agriculture.Semies.semielivewire', compact('semies', 'cultures', 'selectedID'));
@@ -35,14 +36,14 @@ class Semielivewire extends Component
 
     protected $messages = [
         'nom_semie.required' => 'Veuillez saisir un nom de semie',
-        'culture_id.required' => 'Veuillez choisir un type de culture',
+        'type_culture_id.required' => 'Veuillez choisir un type de culture',
         'description.required' => 'Veuillez renseigner une description',
     ];
 
     private function resetInput()
     {
         $this->nom_semie = null;
-        $this->culture_id = null;
+        $this->type_culture_id = null;
         $this->description = null;
         $this->image = null;
     }
@@ -57,7 +58,7 @@ class Semielivewire extends Component
         $validatedData = $this->validate([
             'nom_semie' => 'required',
             'description' => 'required',
-            'culture_id' => 'required',
+            'type_culture_id' => 'required',
         ]);
 
         $imageSelect = $this->image;
@@ -103,7 +104,7 @@ class Semielivewire extends Component
         $this->id_semie = $semie->id;
         $this->nom_semie = $semie->nom_semie;
         $this->description = $semie->description;
-        $this->culture_id = $semie->culture_id;
+        $this->type_culture_id = $semie->type_culture_id;
         $this->imageView = $semie->image;
         $this->semie = $semie;
         $this->updateMode = true;
@@ -114,7 +115,7 @@ class Semielivewire extends Component
         $validatedData = $this->validate([
             'nom_semie' => 'required',
             'description' => 'required',
-            'culture_id' => 'required',
+            'type_culture_id' => 'required',
         ]);
 
         $imageSelect = $this->image;

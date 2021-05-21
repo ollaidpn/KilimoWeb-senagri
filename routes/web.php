@@ -36,6 +36,12 @@ Route::get('/admin/culture/varietes', [App\Http\Livewire\Admin\Agriculture\Varie
 // Semie
 Route::get('/admin/culture/type-semie', [App\Http\Livewire\Admin\Agriculture\Semies\Semie::class, 'render'])->name('admin-type-semie');
 
+// Sols
+Route::get('/admin/culture/type-sols', [App\Http\Livewire\Admin\Agriculture\Sols\Sols::class, 'render'])->name('admin-type-sols');
+
+// Climats
+Route::get('/admin/culture/type-climat', [App\Http\Livewire\Admin\Agriculture\Climat\Climat::class, 'render'])->name('admin-type-climat');
+
 
 // User
 Route::get('/admin/profile', [App\Http\Controllers\InfosUserController::class, 'index'])->name('admin-infos-user');

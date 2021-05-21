@@ -8,19 +8,15 @@
                 <div class="table-responsive">
                     <table class="table zero-configuration">
                         <thead>
-                            <tr style="width: 100%">
-                                <th style="width: 20%">Id</th>
-                                <th style="width: 20%">Nom</th>
-                                <th style="width: 20%">Création</th>
-                                <th style="width: 20%">Action</th>
+                            <tr>
+                                <th style="width: 80%; text-align: center">Nom</th>
+                                <th style="width: 20% ; text-align: center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($culture_types as $culture_type)
-                            <tr>
-                                <td>{{$culture_type->id}}</td>
-                                <td>{{$culture_type->nom_typeculture}}</td>
-                                <td>{{$culture_type->created_at}}</td>
+                            <tr style="width: 100%; text-align: center">
+                                <td style="width: 100%; text-align: left">{{$culture_type->nom_typeculture}}</td>
                                 <td class='d-flex'>
                                     <button class='btn btn-outline-info' wire:click='edit({{$culture_type->id}})'><i class="fas fa-edit"></i></button>
                                     <button class='ml-2 btn btn-outline-danger' wire:click='destroy({{$culture_type->id}})'><i class="fas fa-trash-alt"></i></button>
