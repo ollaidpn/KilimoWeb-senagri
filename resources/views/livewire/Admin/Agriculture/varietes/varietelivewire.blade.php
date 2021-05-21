@@ -31,11 +31,11 @@
                             <table class="table zero-configuration">
                                 <thead>
                                     <tr style="width: 100%; text-align: center">
-                                        <th style="width: 20%">Nom</th>
-                                        <th style="width: 20%">Type de Culture</th>
-                                        <th style="width: 20%">Repiquage planche</th>
-                                        <th style="width: 20%">Repiquage alvéole</th>
-                                        <th style="width: 20%">Type d'arrosage</th>
+                                        <th style="width: 20%">Nom variété</th>
+                                        <th style="width: 20%">Spéculation</th>
+                                        <th style="width: 20%">Temps de recolte</th>
+                                        <th style="width: 20%">Rendement</th>
+                                        <th style="width: 20%">Climat Adéquat</th>
                                         <th style="width: 20%">Action</th>
                                     </tr>
                                 </thead>
@@ -45,13 +45,13 @@
                                     <tr>
                                         <td>{{ $variete->nom_variete }}</td>
                                         <td style="width: 100%; text-align: center">
-                                            {{ $variete->nom_culture }}</td>
+                                            {{ $variete->nom_speculation }}</td>
                                         <td style="width: 100%; text-align: center">
-                                            {{ $variete->repiquage_planche }} jour(s)</td>
+                                            {{ $variete->temps_de_recolte }} jour(s)</td>
                                         <td style="width: 100%; text-align: center">
-                                            {{ $variete->repiquage_alveole }} jour(s)</td>
+                                            {{ $variete->rendement }} hectare(s)</td>
                                         <td style="width: 100%; text-align: center">
-                                            {{ $variete->temps_arrosage }} heure(s)</td>
+                                            {{ $variete->nom_climat }}</td>
 
                                         <td class='d-flex'>
                                             <button class="ml-2 btn btn-outline-info" wire:click="edit({{ $variete->id }})">

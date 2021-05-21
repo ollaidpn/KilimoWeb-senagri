@@ -17,17 +17,17 @@
     <div class="header-navbar-shadow"></div>
     <div class="content-wrapper">
         <div class="content-header row">
-            <div class="content-header-left col-md-9 col-12 mb-2">
+            <div class="mb-2 content-header-left col-md-9 col-12">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Agriculture</h2>
+                        <h2 class="float-left mb-0 content-header-title">Agriculture</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Tableau de bord</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin')}}">Tableau de bord</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">Culture</a>
+                                <li class="breadcrumb-item"><a href="#">Spéculation</a>
                                 </li>
-                                <li class="breadcrumb-item active"><a href="#">liste</a>
+                                <li class="breadcrumb-item active"><a href="{{route('admin-addCulture')}}">Liste</a>
                                 </li>
                             </ol>
                         </div>
@@ -44,7 +44,9 @@
             </div>
         </div>
         <div class="content-body">
-
+            <section id="basic-vertical-layouts">
+                @include('livewire.Admin.Agriculture.Culture.listCultureIndex')
+            </section>
 
         </div>
     </div>

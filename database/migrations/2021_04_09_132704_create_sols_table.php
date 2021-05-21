@@ -16,6 +16,7 @@ class CreateSolsTable extends Migration
         Schema::create('sols', function (Blueprint $table) {
             $table->id();
             $table->string('type_de_sol', 250);
+            $table->string('image');
             $table->timestamps();
         });
     }

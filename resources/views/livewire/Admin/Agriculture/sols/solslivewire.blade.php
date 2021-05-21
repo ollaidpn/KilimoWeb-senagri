@@ -14,10 +14,10 @@
 
             @if ($updateMode)
                 {{--<livewire:editsemie :updateMode="$updateMode" :semieEdit="$semie"/> --}}
-                 @include('livewire.admin.agriculture.semies.semiEdit')
+                 @include('livewire.admin.agriculture.sols.solsEdit')
             @else
                 {{--<livewire:createsemie :updateMode="$updateMode" />--}}
-                 @include('livewire.admin.agriculture.semies.semieCreate')
+                 @include('livewire.admin.agriculture.sols.solsCreate')
             @endif
         </div>
         <div class="col-md-8 col-12">
@@ -40,30 +40,30 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        @foreach ($semies as $semie)
+                                        @foreach ($sols as $sol)
                                         <tr>
-                                            <td>{{ $semie->nom_semie }}</td>
+                                            <td>{{ $sol->type_de_sol }}</td>
                                             <td style="width: 100%; text-align: center">
-                                                {{ $semie->nom_typeculture }}</td>
+                                                {{ $sol->type_de_sol }}</td>
                                             <td style="width: 100%; text-align: center">
-                                                {{ $semie->description }}
+                                                {{ $sol->type_de_sol }}
                                             </td>
                                             <td style="width: 100%; text-align: center">
                                                 <span class="avatar">
                                                     <img
                                                         class="round"
-                                                        src="{{ asset('image/semie/'.$semie->image) }}"
+                                                        src="{{ asset('/storage/app/image/sol/'.$sol->image) }}"
                                                         width="80"
                                                         heigth="80"
                                                     />
                                                 </span>
                                             </td>
                                             <td class='d-flex'>
-                                                <button class="ml-2 btn btn-outline-info" wire:click="edit({{ $semie->id }})">
+                                                <button class="ml-2 btn btn-outline-info" wire:click="edit({{ $sol->id }})">
                                                     <i class="fas fa-edit"></i>
                                                 </button>
 
-                                                <button wire:click="destroy({{ $semie->id }})" class="ml-2 btn btn-outline-danger">
+                                                <button wire:click="destroy({{ $sol->id }})" class="ml-2 btn btn-outline-danger">
                                                     <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </td>

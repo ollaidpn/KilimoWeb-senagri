@@ -1,4 +1,4 @@
-<div class="col-md-8 col-12">
+<div class="col-md-12 col-12">
     <div class="card">
         <div class="card-header">
             <h4 class="card-title">Liste des Spéculations</h4>
@@ -35,8 +35,8 @@
                                     </span>
                                 </td>
                                 <td class="pt-2 d-flex">
-                                    <button class="btn btn-outline-info" wire:click='edit({{$culture->id}})'><i class="fas fa-edit"></i></button>
-                                    <button class="ml-2 btn btn-outline-danger" wire:click='destroy({{$culture->id}})'><i class="fas fa-trash-alt"></i></button>
+                                    <button class="btn btn-outline-info" {{-- wire:click='edit({{$culture->id}})' --}}><i class="fas fa-eye"></i></button>
+                                    <button class="ml-2 btn btn-outline-danger" {{-- wire:click='destroy({{$culture->id}})' --}}><i class="fas fa-trash-alt"></i></button>
                                 </td>
                             </tr>
                             @endforeach

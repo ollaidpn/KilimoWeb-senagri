@@ -19,6 +19,7 @@ class CreateCulturesTable extends Migration
             $table->string('fertilisation', 250);
             $table->string('irrigation_phase_croissance', 250);
             $table->string('irrigation_phase_maturite', 250);
+            $table->string('typeculture_id', 250);
             $table->foreignId('climat_id')->constrained('climats');
             $table->foreignId('type_sol_id')->constrained('sols');
             $table->string('image');

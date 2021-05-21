@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Agriculture\Sols;
+namespace App\Http\Livewire\Admin\Agriculture\Climat;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
-class Sols extends Component
+class Climat extends Component
 {
     public function render()
     {
         $user = User::find(Auth::user()->id);
-
-        return view('livewire.admin.agriculture.sols.sols', compact('user'));
+        return view('livewire.admin.agriculture.climat.climat', compact('user'));
     }
 }
