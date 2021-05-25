@@ -62,7 +62,7 @@
 
                     <div class="col-12">
                         <button wire:click="update()" class="mr-1 btn btn-info">Modifier</button>
-                        <button wire:click="annule()" class="mr-1 btn nav-danger">Annuler</button>
+                        <button wire:click="annule()" class="mr-1 btn btn-warning">Annuler</button>
                     </div>
                 </div>
 

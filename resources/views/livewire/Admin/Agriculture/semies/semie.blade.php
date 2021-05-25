@@ -26,11 +26,11 @@
                                 <h2 class="float-left mb-0 content-header-title">Agriculture</h2>
                                 <div class="breadcrumb-wrapper">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="index.html">Tableau de bord</a>
+                                        <li class="breadcrumb-item"><a href="{{route('admin')}}">Tableau de bord</a>
                                         </li>
                                         <li class="breadcrumb-item"><a href="#">Culture</a>
                                         </li>
-                                        <li class="breadcrumb-item active"><a href="#">Type de Semie</a>
+                                        <li class="breadcrumb-item active"><a href="{{route('admin-type-semie')}}">Type de Semie</a>
                                         </li>
                                     </ol>
                                 </div>

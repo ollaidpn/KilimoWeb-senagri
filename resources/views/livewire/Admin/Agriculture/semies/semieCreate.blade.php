@@ -10,14 +10,14 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="nom">Nom semie</label>
-                            <input type="text" id="nom" class="form-control  @error('nom_semie') is-invalid @enderror" wire:model="nom_semie" placeholder="Ex: varièté" />
+                            <input type="text" id="nom" class="form-control  @error('nom_semie') is-invalid @enderror" wire:model="nom_semie" placeholder="Ex: planche" />
                             @error('nom_semie') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-group">
                             <label for="contact-info-vertical">Type de culture</label>
-                            <select wire:model="culture_id" class="form-control  @error('culture_id') is-invalid @enderror">
+                            <select wire:model="type_culture_id" class="form-control  @error('type_culture_id') is-invalid @enderror">
                                 <option>Choisir le type de culture</option>
                                 @foreach ($cultures as $key => $value)
                                     <option value="{{ $key }}"
@@ -26,7 +26,7 @@
                                     </option>
                                 @endforeach
                             </select>
-                            @error('culture_id') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
+                            @error('type_culture_id') <span class="error"><p style="color:red">{{ $message }}</p></span> @enderror
                         </div>
                     </div>
                     <div class="col-12">

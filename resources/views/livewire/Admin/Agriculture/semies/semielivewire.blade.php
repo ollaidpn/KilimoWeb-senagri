@@ -44,7 +44,7 @@
                                         <tr>
                                             <td>{{ $semie->nom_semie }}</td>
                                             <td style="width: 100%; text-align: center">
-                                                {{ $semie->nom_culture }}</td>
+                                                {{ $semie->nom_typeculture }}</td>
                                             <td style="width: 100%; text-align: center">
                                                 {{ $semie->description }}
                                             </td>
@@ -52,12 +52,12 @@
                                                 <span class="avatar">
                                                     <img
                                                         class="round"
-                                                        src="{{ asset('storage/image/semie/'.$semie->image) }}"
+                                                        src="{{ asset('image/semie/'.$semie->image) }}"
                                                         width="80"
                                                         heigth="80"
                                                     />
+                                                </span>
                                             </td>
-                                            </span>
                                             <td class='d-flex'>
                                                 <button class="ml-2 btn btn-outline-info" wire:click="edit({{ $semie->id }})">
                                                     <i class="fas fa-edit"></i>

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Climat;
 use App\Models\Culture;
+use App\Models\CulturesType;
+use App\Models\Sols;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +20,14 @@ class CultureController extends Controller
     public function index()
     {
         $user = User::find(Auth::user()->id);
-        return view('livewire.Admin.Agriculture.Culture.index', compact('user'));
+        $cultures = Culture::
+                    join('cultures_types', 'cultures_types.id', '=', 'cultures.typeculture_id')->
+                    join('climats', 'climats.id', '=', 'cultures.climat_id')->
+                    join('sols', 'sols.id', '=', 'cultures.type_sol_id')
+                    ->get(['cultures.*', 'nom_typeculture','nom_climat','type_de_sol']);
+
+
+        return view('livewire.Admin.Agriculture.Culture.index', compact('user', 'cultures'));
     }
 
     /**

@@ -8,7 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class CulturesType extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'nom_typeculture'
-    ];
+    protected $guarded = [];
 }
