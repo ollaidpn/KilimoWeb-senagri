@@ -125,7 +125,7 @@ class Solslivewire extends Component
 
             $extension = $imageSelect->extension();
             $imageName = time().'.'.$extension;
-            $imageSelect->storeAs('image/sol', $imageName);
+            $imageSelect->storeAs('photos', $imageName);
 
             $validatedData += [
                 "image"=> $imageName,
