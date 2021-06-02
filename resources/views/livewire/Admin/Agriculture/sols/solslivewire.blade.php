@@ -23,7 +23,7 @@
         <div class="col-md-8 col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Liste des semies</h4>
+                    <h4 class="card-title">Liste des sols</h4>
                 </div>
                 <div class="card-content">
                     <div class="card-body card-dashboard">
@@ -31,10 +31,8 @@
                             <table class="table zero-configuration">
                                 <thead>
                                     <tr style="width: 100%; text-align: center">
-                                        <th style="width: 20%">Nom</th>
-                                        <th style="width: 20%">Type de Culture</th>
-                                        <th style="width: 20%">Description</th>
-                                        <th style="width: 20%">Image</th>
+                                        <th style="width: 40%">Nom</th>
+                                        <th style="width: 40%">Image</th>
                                         <th style="width: 20%">Action</th>
                                     </tr>
                                 </thead>
@@ -44,15 +42,10 @@
                                         <tr>
                                             <td>{{ $sol->type_de_sol }}</td>
                                             <td style="width: 100%; text-align: center">
-                                                {{ $sol->type_de_sol }}</td>
-                                            <td style="width: 100%; text-align: center">
-                                                {{ $sol->type_de_sol }}
-                                            </td>
-                                            <td style="width: 100%; text-align: center">
                                                 <span class="avatar">
                                                     <img
                                                         class="round"
-                                                        src="{{ asset('/storage/app/image/sol/'.$sol->image) }}"
+                                                        src="{{ asset('storage/photos/'.$sol->image) }}"
                                                         width="80"
                                                         heigth="80"
                                                     />

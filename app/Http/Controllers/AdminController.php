@@ -16,7 +16,15 @@ class AdminController extends Controller
     public function index()
     {
         $user = User::find(Auth::user()->id);
-        return view('livewire.Admin.index', compact('user'));
+        $role = ($user->role_id);
+
+        if($role == 0){
+            return view('livewire.Client.index', compact('user'));
+
+        }
+        if($role == 1){
+            return view('livewire.Admin.index', compact('user'));
+        }
     }
 
     /**
