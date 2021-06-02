@@ -40,7 +40,7 @@
   <!-- END: Head-->
 
   <!-- BEGIN: Body-->
-  <body class="horizontal-layout horizontal-menu blank-page navbar-floating footer-static  " data-open="hover" data-menu="horizontal-menu" data-col="blank-page">
+  <body class="horizontal-layout horizontal-menu blank-page navbar-floating footer-static " data-open="hover" data-menu="horizontal-menu" data-col="blank-page">
     <!-- BEGIN: Content-->
     @yield('content')
     <!-- END: Content-->
