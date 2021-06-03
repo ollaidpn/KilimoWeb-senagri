@@ -1,6 +1,3 @@
-{{-- <head>
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/style.css')}}">
-</head> --}}
 <div class="tab-content elevage">
     <div class="content-overlay"></div>
     <div class="header-navbar-shadow"></div>
@@ -15,7 +12,7 @@
             <div class="mb-2 content-header-left col-md-9 col-12">
                 <div class="row breadcrumbs-top">
                 <div class="col-12">
-                    <h2 class="float-left mb-0 content-header-title">Agriculte</h2>
+                    <h2 class="float-left mb-0 content-header-title">Elevage</h2>
                     <div class="breadcrumb-wrapper">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Home</a>
@@ -197,7 +194,7 @@
         </div>
   </section>
 
-{{-- fin --}}
+
 </section>
 </div>
 </div>

@@ -220,13 +220,13 @@
         </li>
         <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Invoice">Agriculture</span></a>
           <ul class="menu-content">
-            <li><a class="d-flex align-items-center" href="app-invoice-list.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Ajouter un autre</span></a>
+            <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Ajouter un autre</span></a>
             </li>
-            <li><a class="d-flex align-items-center" href="app-invoice-preview.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Preview">Listes agricultures</span></a>
+            <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Preview">Listes agricultures</span></a>
             </li>
-            <li><a class="d-flex align-items-center" href="app-invoice-edit.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Edit">Reussie</span></a>
+            <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Edit">Reussie</span></a>
             </li>
-            <li><a class="d-flex align-items-center" href="app-invoice-add.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Add">Echouer</span></a>
+            <li><a class="d-flex align-items-center btn-agricultures" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Add">Echouer</span></a>
             </li>
           </ul>
         </li>

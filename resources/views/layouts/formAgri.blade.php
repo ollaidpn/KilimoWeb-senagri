@@ -1,6 +1,3 @@
-{{-- <head>
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/style.css')}}">
-</head> --}}
 <div class="tab-content agriculture">
     <div class="content-overlay"></div>
     <div class="header-navbar-shadow"></div>
