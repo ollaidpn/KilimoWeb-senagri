@@ -80,6 +80,34 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
+                                        <label class="form-label" for="login-civilite">Civilité</label>
+                                        <select name="civilite" class="custom-select @error('civilite') is-invalid @enderror" id="login-civilite">
+                                            <option value="homme" selected="">Homme</option>
+                                            <option value="femme">Femme</option>
+                                        </select>
+                                        @error('civilite')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="login-age">Tranche d'âge</label>
+                                        <select name="age" class="custom-select @error('age') is-invalid @enderror" id="login-age">
+                                            <option value="15-25" selected>15-25</option>
+                                            <option value="25-35">25-35</option>
+                                            <option value="35-45">35-45</option>
+                                            <option value="45-55">45-55</option>
+                                            <option value="55-65">55-65</option>
+                                            <option value="65 et plus">65 et plus</option>
+                                        </select>
+                                        @error('age')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
                                         <label class="form-label" for="login-telephone">Téléphone</label>
                                         <input class="form-control @error('telephone') is-invalid @enderror" id="login-telephone"
                                             type="tel" name="telephone" placeholder="776789100"

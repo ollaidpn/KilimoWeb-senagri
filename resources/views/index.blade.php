@@ -52,10 +52,10 @@
     <!--Owl carousel css-->
     <link rel="stylesheet" href="{{asset('assets/kilimo/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/kilimo/css/owl.theme.default.min.css')}}">
-    <!--custom css-->
-    <link rel="stylesheet" href="{{asset('assets/kilimo/css/style.css')}}">
     <!--responsive css-->
     <link rel="stylesheet" href="{{asset('assets/kilimo/css/responsive.css')}}">
+    <!--custom css-->
+    <link rel="stylesheet" href="{{asset('assets/kilimo/css/style.css')}}">
 
 </head>
 

@@ -2,15 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Culture;
-use App\Models\CulturesType;
-use App\Models\CulturesVariete;
-use App\Models\Sols;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class AdminController extends Controller
+class ProjetAgricole extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,26 +13,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $user = User::find(Auth::user()->id);
-        $role = ($user->role_id);
-
-        $typeCultures = CulturesType::pluck('nom_typeculture', 'id');
-        $sols = Sols::pluck('type_de_sol', 'id');
-        $speculations = Culture::pluck('nom_speculation', 'id');
-        $varietes = CulturesVariete::pluck('nom_variete', 'id');
-
-        // SI l'UTLISATEUR CONNECTE EST UN CLIENT, REDIRECTION VERS SA DASHBORD
-        // ==>
-
-        if($role == 0){
-            return view('livewire.Client.index', compact('user', 'typeCultures', 'sols', 'speculations', 'varietes'));
-        }
-
-        // SI l'UTLISATEUR CONNECTE EST UN ADMINISTRATEUR, REDIRECTION VERS SA DASHBORD
-
-        if($role == 1){
-            return view('livewire.Admin.index', compact('user'));
-        }
+        //
     }
 
     /**
