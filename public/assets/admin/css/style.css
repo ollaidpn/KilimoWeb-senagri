@@ -1,0 +1,10 @@
+.tab-content{
+    display: none;
+}
+
+.statistique.active{
+    display: block;
+}
+.active{
+    display: block;
+}
