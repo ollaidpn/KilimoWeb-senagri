@@ -1,10 +1,10 @@
 {{--  --}}
-<div class="tab-content btn_add_agriculture" style="background-image: url('assets/kilimo/agro2030-1-big.jpg');">
-    <div class="col-lg-4 col-md-6 col-12" style="background-image: url('assets/kilimo/img/hero-bg-4.jpg');background-size: cover;">
-        <div class="card card-profile" style="background-image: url('assets/kilimo/img/hero-bg-4.jpg');background-size: cover;">
+<div class="mb-4 tab-content btn_add_agriculture backgroundImage" style="background-image: url('assets/kilimo/agro2030-1-big.jpg');">
+    <div class="backgroundImage col-lg-4 col-md-6 col-12" style="background-image: url('assets/kilimo/img/hero-bg-4.jpg');background-size: cover;">
+        <div class="card card-profile" style="background-image: url('assets/kilimo/img/hero-bg-4.jpg');background-size: cover;opacity:1;">
             <div class="card-body">
                 <h3 class="text-white">Agriculture</h3>
-                <button class="btn btn-primary">Ajouter</button>
+                <button class="btn btn-agricultures btn-primary">Ajouter</button>
                 <hr class="mb-2" />
             </div>
         </div>
@@ -16,70 +16,140 @@
     <div class="header-navbar-shadow"></div>
     <div class="content-wrapper">
         <div class="content-body">
-            <!-- Dark Tables start -->
-            <div class="row" id="dark-table">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Agricultures</h4>
+            <!-- Statistics card section -->
+            <section id="statistics-card">
+                <!-- Stats Horizontal Card -->
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="avatar bg-light-primary ml-0">
+                                    <div class="avatar-content">
+                                        <i data-feather="cpu" class="font-medium-5"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5 class="font-weight-bolder mb-1">Date de semie</h5>
+                                    <h5 class="font-weight-bolder mb-1">Date de fin</h5>
+                                    <h5 class="font-weight-bolder mb-0">Dernier entretien</h5>
+                                </div>
+                                <div>
+                                    <h5 class="font-weight-bolder mb-1">12/05/21</h5>
+                                    <h5 class="font-weight-bolder mb-1">12/07/21</h5>
+                                    <h5 class="font-weight-bolder mb-0">aujourd'hui</h5>
+                                </div>
+                            </div>
                         </div>
-                        <div class="table-responsive">
-                            <table class="table table-dark">
-                                <thead>
-                                    <tr>
-                                        <th>Project</th>
-                                        <th>Nom</th>
-                                        <th>Date de semie</th>
-                                        <th>Date de fin</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <img src="assets/images/icons/bootstrap.svg" class="mr-75" height="20" width="20" alt="Bootstrap" />
-                                            <span class="font-weight-bold">Bootstrap Project</span>
-                                        </td>
-                                        <td>Jerry Milton</td>
-                                        <td>
-                                            <div class="avatar-group">
-                                                <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="top" title="" class="my-0 avatar pull-up" data-original-title="Lilian Nenez">
-                                                    <img src="../../../app-assets/images/portrait/small/avatar-s-5.jpg" alt="Avatar" height="26" width="26" />
-                                                </div>
-                                                <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="top" title="" class="my-0 avatar pull-up" data-original-title="Alberto Glotzbach">
-                                                    <img src="../../../app-assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" height="26" width="26" />
-                                                </div>
-                                                <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="top" title="" class="my-0 avatar pull-up" data-original-title="Alberto Glotzbach">
-                                                    <img src="../../../app-assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" height="26" width="26" />
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td><span class="mr-1 badge badge-pill badge-light-warning">Pending</span></td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button type="button" class="text-white btn btn-sm dropdown-toggle hide-arrow" data-toggle="dropdown">
-                                                    <i data-feather="more-vertical"></i>
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="javascript:void(0);">
-                                                        <i data-feather="edit-2" class="mr-50"></i>
-                                                        <span>Edit</span>
-                                                    </a>
-                                                    <a class="dropdown-item" href="javascript:void(0);">
-                                                        <i data-feather="trash" class="mr-50"></i>
-                                                        <span>Delete</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="avatar bg-light-primary ml-0">
+                                    <div class="avatar-content">
+                                        <i data-feather="cpu" class="font-medium-5"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5 class="font-weight-bolder mb-1">Date de semie</h5>
+                                    <h5 class="font-weight-bolder mb-1">Date de fin</h5>
+                                    <h5 class="font-weight-bolder mb-0">Dernier entretien</h5>
+                                </div>
+                                <div>
+                                    <h5 class="font-weight-bolder mb-1">12/05/21</h5>
+                                    <h5 class="font-weight-bolder mb-1">12/07/21</h5>
+                                    <h5 class="font-weight-bolder mb-0">aujourd'hui</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="avatar bg-light-primary ml-0">
+                                    <div class="avatar-content">
+                                        <i data-feather="cpu" class="font-medium-5"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5 class="font-weight-bolder mb-1">Date de semie</h5>
+                                    <h5 class="font-weight-bolder mb-1">Date de fin</h5>
+                                    <h5 class="font-weight-bolder mb-0">Dernier entretien</h5>
+                                </div>
+                                <div>
+                                    <h5 class="font-weight-bolder mb-1">12/05/21</h5>
+                                    <h5 class="font-weight-bolder mb-1">12/07/21</h5>
+                                    <h5 class="font-weight-bolder mb-0">aujourd'hui</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="avatar bg-light-primary ml-0">
+                                    <div class="avatar-content">
+                                        <i data-feather="cpu" class="font-medium-5"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5 class="font-weight-bolder mb-1">Date de semie</h5>
+                                    <h5 class="font-weight-bolder mb-1">Date de fin</h5>
+                                    <h5 class="font-weight-bolder mb-0">Dernier entretien</h5>
+                                </div>
+                                <div>
+                                    <h5 class="font-weight-bolder mb-1">12/05/21</h5>
+                                    <h5 class="font-weight-bolder mb-1">12/07/21</h5>
+                                    <h5 class="font-weight-bolder mb-0">aujourd'hui</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="avatar bg-light-primary ml-0">
+                                    <div class="avatar-content">
+                                        <i data-feather="cpu" class="font-medium-5"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5 class="font-weight-bolder mb-1">Date de semie</h5>
+                                    <h5 class="font-weight-bolder mb-1">Date de fin</h5>
+                                    <h5 class="font-weight-bolder mb-0">Dernier entretien</h5>
+                                </div>
+                                <div>
+                                    <h5 class="font-weight-bolder mb-1">12/05/21</h5>
+                                    <h5 class="font-weight-bolder mb-1">12/07/21</h5>
+                                    <h5 class="font-weight-bolder mb-0">aujourd'hui</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="avatar bg-light-primary ml-0">
+                                    <div class="avatar-content">
+                                        <i data-feather="cpu" class="font-medium-5"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5 class="font-weight-bolder mb-1">Date de semie</h5>
+                                    <h5 class="font-weight-bolder mb-1">Date de fin</h5>
+                                    <h5 class="font-weight-bolder mb-0">Dernier entretien</h5>
+                                </div>
+                                <div>
+                                    <h5 class="font-weight-bolder mb-1">12/05/21</h5>
+                                    <h5 class="font-weight-bolder mb-1">12/07/21</h5>
+                                    <h5 class="font-weight-bolder mb-0">aujourd'hui</h5>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Table Hover Animation start -->
+            </section>
+            <!--/ Statistics Card section-->
+
         </div>
     </div>
 </div>

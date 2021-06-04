@@ -226,7 +226,7 @@
             </li>
             <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Edit">Reussie</span></a>
             </li>
-            <li><a class="d-flex align-items-center btn-agricultures" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Add">Echouer</span></a>
+            <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Add">Echouer</span></a>
             </li>
           </ul>
         </li>
