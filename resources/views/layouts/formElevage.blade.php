@@ -81,9 +81,12 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="contact-info-vertical">Spéculation</label>
+                            <p id="test"></p>
                             <select name="speculation_id" class="form-control @error('speculation_id') is-invalid @enderror">
                                 <option>Choisir la spéculation</option>
+
                                 @foreach ($speculations as $key => $value)
+
                                     <option value="{{ $key }}"
                                         {{ $key == 1 ? 'selected' : '' }}>
                                         {{ $value }}
