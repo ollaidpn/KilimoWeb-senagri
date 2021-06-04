@@ -82,7 +82,7 @@
                                     <div class="form-group">
                                         <label class="form-label" for="login-civilite">Civilité</label>
                                         <select name="civilite" class="custom-select @error('civilite') is-invalid @enderror" id="login-civilite">
-                                            <option value="homme" selected="">Homme</option>
+                                            <option value="homme">Homme</option>
                                             <option value="femme">Femme</option>
                                         </select>
                                         @error('civilite')
@@ -94,7 +94,7 @@
                                     <div class="form-group">
                                         <label for="login-age">Tranche d'âge</label>
                                         <select name="age" class="custom-select @error('age') is-invalid @enderror" id="login-age">
-                                            <option value="15-25" selected>15-25</option>
+                                            <option value="15-25">15-25</option>
                                             <option value="25-35">25-35</option>
                                             <option value="35-45">35-45</option>
                                             <option value="45-55">45-55</option>
