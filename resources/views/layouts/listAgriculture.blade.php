@@ -1,10 +1,10 @@
 {{--  --}}
-<div class="tab-content btn_add_agriculture" style="background-image: url('assets/kilimo/agro2030-1-big.jpg');">
-    <div class="col-lg-4 col-md-6 col-12" style="background-image: url('assets/kilimo/img/hero-bg-4.jpg');background-size: cover;">
-        <div class="card card-profile" style="background-image: url('assets/kilimo/img/hero-bg-4.jpg');background-size: cover;">
+<div class="mb-4 tab-content btn_add_agriculture backgroundImage" style="background-image: url('assets/kilimo/agro2030-1-big.jpg');">
+    <div class="backgroundImage col-lg-4 col-md-6 col-12" style="background-image: url('assets/kilimo/img/hero-bg-4.jpg');background-size: cover;">
+        <div class="card card-profile" style="background-image: url('assets/kilimo/img/hero-bg-4.jpg');background-size: cover;opacity:1;">
             <div class="card-body">
                 <h3 class="text-white">Agriculture</h3>
-                <button class="btn btn-primary">Ajouter</button>
+                <button class="btn btn-agricultures btn-primary">Ajouter</button>
                 <hr class="mb-2" />
             </div>
         </div>
