@@ -30,7 +30,7 @@
               <div class="content-body">
       <section id="basic-vertical-layouts">
         <div class="row">
-          <div class="col-md-6 col-12">
+          <div class="col-lg-12 col-md-6 col-12">
             <div class="card">
               <div class="card-header">
                 <h4 class="card-title">Agriculture form</h4>
@@ -132,13 +132,13 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-12">
+          {{-- <div class="col-md-6 col-12">
             <div class="card">
               <div class="card-header">
                 <h4 class="card-title">Conseils</h4>
               </div>
               <div class="card-body">
-                {{-- <form class="form form-vertical">
+                <form class="form form-vertical">
                   <div class="row">
                     <div class="col-12">
                       <div class="form-group">
@@ -221,11 +221,11 @@
                       <button type="reset" class="btn btn-outline-secondary">Reset</button>
                     </div>
                   </div>
-                </form> --}}
+                </form>
                 <h1>Partie conseil</h1>
               </div>
             </div>
-          </div>
+          </div> --}}
         </div>
   </section>
 
