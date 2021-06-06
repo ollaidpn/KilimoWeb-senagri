@@ -44,7 +44,7 @@
 
                         </ul>
                     </li>
-
+                    <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-toggle="dropdown"><i data-feather="package"></i><span data-i18n="Apps">Elevage</span></a></li>
 
                     <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="#" data-toggle="dropdown"><i data-feather="settings"></i><span data-i18n="Misc">Paramètres</span></a>
                         <ul class="dropdown-menu">

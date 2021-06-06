@@ -68,5 +68,19 @@ Route::post('/admin/utilisateurs/administrateurs/ajouter', [App\Http\Controllers
 Route::get('index',[App\Http\Livewire\AddCulture::class,'render']);
 });
 
+// Agriculture
+// formulaire pour ajouter des projet agriculture
+Route::get('admin/formulaireAgri',[App\Http\Controllers\Agriculture::class, 'formulaireAgriculture'])->name('ajouter-agricultures');
+// liste des projet agricultures
+Route::get('admin/listeAgri',[App\Http\Controllers\Agriculture::class, 'listeAgriculture'])->name('liste-agricultures');
+
+// Elevage
+// formualire pour ajouter des projets eleevages
+Route::get('admin/formulaireElevage',[App\Http\Controllers\Elevage::class, 'formulaireElevage'])->name('ajouter-elevages');
+// liste des projets elevage
+Route::get('admin/listeElevage',[App\Http\Controllers\Elevage::class, 'listeElevage'])->name('liste-elevages');
+
+// information client
+Route::get('admin/profileClient',[App\Http\Controllers\ProfileClient::class, 'profile'])->name('profile');
 
 

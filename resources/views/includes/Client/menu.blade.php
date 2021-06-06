@@ -91,9 +91,9 @@
         </li>
         <li class="nav-item dropdown dropdown-user">
             <a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <div class="user-nav d-sm-flex d-none"><span class="user-name font-weight-bolder">{{$user->nom}}</span><span class="user-status">{{$user->email}}</span></div><span class="avatar"><img class="round" src="{{asset('assets/admin/images/portrait/small/avatar-s-11.jpg')}}" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span></a>
+            <div class="user-nav d-sm-flex d-none"><span class="user-name font-weight-bolder">user->nom</span><span class="user-status">user->email</span></div><span class="avatar"><img class="round" src="{{asset('assets/admin/images/portrait/small/avatar-s-11.jpg')}}" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span></a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user">
-              <a class="dropdown-item" href="page-profile.html"><i class="mr-50" data-feather="user"></i> Profile</a>
+              <a class="dropdown-item" href="{{route('profile')}}"><i class="mr-50" data-feather="user"></i> Profile</a>
             <div class="dropdown-divider"></div>
             <div>
             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="mr-50" data-feather="power"></i> Se déconnecter</a>
@@ -179,7 +179,7 @@
   <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
     <div class="navbar-header">
       <ul class="flex-row nav navbar-nav">
-        <li class="mr-auto nav-item"><a class="navbar-brand" href="../../../html/ltr/vertical-menu-template/index.html"><span class="brand-logo">
+        <li class="mr-auto nav-item"><a class="navbar-brand" href="{{route('admin')}}"><span class="brand-logo">
               <svg viewbox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="24">
                 <defs>
                   <lineargradient id="linearGradient-1" x1="100%" y1="10.5120544%" x2="50%" y2="89.4879456%">
@@ -212,17 +212,17 @@
       <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
         <li class=" nav-item"><a class="d-flex align-items-center" href="index.html"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Dashboards</span><span class="ml-auto mr-1 badge badge-light-warning badge-pill">2</span></a>
           <ul class="menu-content">
-            <li class="active"><a class="d-flex align-items-center" href="dashboard-ecommerce.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="eCommerce">Acceuil</span></a>
+            <li class="active"><a class="d-flex align-items-center" href="{{route('admin')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="eCommerce">Acceuil</span></a>
             </li>
           </ul>
         </li>
 
         </li>
-        <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Invoice">Agriculture</span></a>
+        <li class=" nav-item"><a class="d-flex align-items-center"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Invoice">Agriculture</span></a>
           <ul class="menu-content">
-            <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Ajouter un autre</span></a>
+            <li><a class="d-flex align-items-center" href="{{route('ajouter-agricultures')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Ajouter un autre</span></a>
             </li>
-            <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Preview">Listes agricultures</span></a>
+            <li><a class="d-flex align-items-center" href="{{route('liste-agricultures')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Preview">Listes agricultures</span></a>
             </li>
             <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Edit">Reussie</span></a>
             </li>
@@ -232,9 +232,9 @@
         </li>
         <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="shopping-cart"></i><span class="menu-title text-truncate" data-i18n="eCommerce">Elevage</span></a>
           <ul class="menu-content">
-            <li><a class="d-flex align-items-center" href="app-ecommerce-shop.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Shop">Ajouter un autre</span></a>
+            <li><a class="d-flex align-items-center" href="{{route('ajouter-elevages')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Shop">Ajouter un autre</span></a>
             </li>
-            <li><a class="d-flex align-items-center" href="app-ecommerce-details.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Details">Listes elevages</span></a>
+            <li><a class="d-flex align-items-center" href="{{route('liste-elevages')}}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Details">Listes elevages</span></a>
             </li>
             <li><a class="d-flex align-items-center" href="app-ecommerce-wishlist.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Wish List">Reussie</span></a>
             </li>
